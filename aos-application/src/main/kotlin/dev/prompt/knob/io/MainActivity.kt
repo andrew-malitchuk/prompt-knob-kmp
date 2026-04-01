@@ -29,3 +29,5 @@ class MainActivity : ComponentActivity() {
 fun AppAndroidPreview() {
     App()
 }
+
+// add ui modifier
