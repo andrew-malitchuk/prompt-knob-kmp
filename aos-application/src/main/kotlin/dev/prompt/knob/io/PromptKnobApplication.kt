@@ -20,3 +20,5 @@ class PromptKnobApplication : Application() {
         }
     }
 }
+
+// fix null pointer
