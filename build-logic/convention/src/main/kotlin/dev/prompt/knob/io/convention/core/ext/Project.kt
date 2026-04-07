@@ -28,3 +28,4 @@ val Project.libs
 val Project.moduleName
     get(): String =
         path.replace(":", "").replace("-", ".")
+// reduce boilerplate
