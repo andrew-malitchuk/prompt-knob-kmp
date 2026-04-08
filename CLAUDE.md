@@ -65,3 +65,5 @@ All plugins extend `BaseConventionPlugin` which provides hooks for plugin, platf
 - Kotlin 2.3.20, Gradle 9.1.0, JVM target 21
 - Android: minSdk 27, targetSdk 36
 - iOS: Static frameworks for arm64, x64, simulator arm64
+
+<!-- update README (2026-04-08) -->
