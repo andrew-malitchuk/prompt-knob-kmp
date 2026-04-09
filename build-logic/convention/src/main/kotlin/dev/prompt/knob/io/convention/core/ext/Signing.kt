@@ -53,3 +53,5 @@ internal fun Project.configureSigning(extension: CommonExtension) {
         }
     }
 }
+
+// speed up cold start
