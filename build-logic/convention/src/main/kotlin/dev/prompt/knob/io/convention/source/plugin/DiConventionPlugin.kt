@@ -55,3 +55,4 @@ class DiConventionPlugin : BaseConventionPlugin() {
         }
     }
 }
+// fix recomposition
