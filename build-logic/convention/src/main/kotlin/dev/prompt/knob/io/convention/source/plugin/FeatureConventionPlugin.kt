@@ -106,3 +106,5 @@ class FeatureConventionPlugin : BaseConventionPlugin() {
     }
 
 }
+
+// integrate use case
