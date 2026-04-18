@@ -84,3 +84,5 @@ commonMain.dependencies {
     }
 
 }
+
+// simplify logic
