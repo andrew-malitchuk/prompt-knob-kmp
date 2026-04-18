@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Onboarding -->
+    <string name="onboarding_title">Ласкаво просимо</string>
+    <string name="onboarding_description">Пройдіть швидке налаштування, щоб персоналізувати свій досвід.</string>
+    <string name="onboarding_get_started">Розпочати</string>
+
+    <!-- Splash -->
+    <string name="splash_title">Завантаження</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_language">Мова</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_uk">Українська</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_theme_light">Світла</string>
+    <string name="settings_theme_dark">Темна</string>
+
+    <!-- Error -->
+    <string name="error_title">Ой, щось пішло не так</string>
+    <string name="error_description">Ми вже працюємо над виправленням. Спробуйте пізніше.</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Onboarding -->
+    <string name="onboarding_title">Willkommen</string>
+    <string name="onboarding_description">Richte dein Erlebnis in wenigen Schritten ein.</string>
+    <string name="onboarding_get_started">Loslegen</string>
+
+    <!-- Splash -->
+    <string name="splash_title">Laden</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_uk">Українська</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_theme">Design</string>
+    <string name="settings_theme_light">Hell</string>
+    <string name="settings_theme_dark">Dunkel</string>
+
+    <!-- Error -->
+    <string name="error_title">Hoppla, etwas ist schiefgelaufen</string>
+    <string name="error_description">Wir arbeiten bereits an einer Lösung. Bitte versuche es später erneut.</string>
+</resources>

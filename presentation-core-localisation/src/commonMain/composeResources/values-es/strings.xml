@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Onboarding -->
+    <string name="onboarding_title">Bienvenido</string>
+    <string name="onboarding_description">Completa una configuración rápida para personalizar tu experiencia.</string>
+    <string name="onboarding_get_started">Comenzar</string>
+
+    <!-- Splash -->
+    <string name="splash_title">Cargando</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_uk">Українська</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+
+    <!-- Error -->
+    <string name="error_title">Vaya, algo salió mal</string>
+    <string name="error_description">Ya estamos trabajando en una solución. Inténtalo de nuevo más tarde.</string>
+</resources>
