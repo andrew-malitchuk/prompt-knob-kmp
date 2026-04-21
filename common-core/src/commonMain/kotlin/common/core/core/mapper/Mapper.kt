@@ -15,3 +15,5 @@ public fun interface Mapper<I, O> {
      */
     public fun map(input: I): O
 }
+
+// restructure module
