@@ -59,3 +59,5 @@ public fun App() {
         }
     }
 }
+
+// reduce allocations
