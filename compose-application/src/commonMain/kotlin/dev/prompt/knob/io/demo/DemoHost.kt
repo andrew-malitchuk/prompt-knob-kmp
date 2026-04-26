@@ -78,3 +78,5 @@ internal fun DemoHost() {
         }
     }
 }
+
+// add extension helper
