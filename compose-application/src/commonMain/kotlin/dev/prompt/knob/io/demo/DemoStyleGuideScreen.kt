@@ -272,3 +272,5 @@ private fun SpacingRow(name: String, size: Dp) {
         )
     }
 }
+
+// fix memory leak
