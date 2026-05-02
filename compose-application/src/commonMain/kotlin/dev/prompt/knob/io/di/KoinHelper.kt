@@ -11,3 +11,5 @@ package dev.prompt.knob.io.di
 public fun doInitKoin() {
     initKoin()
 }
+
+// add feature module
