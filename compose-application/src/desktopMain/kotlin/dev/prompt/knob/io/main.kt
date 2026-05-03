@@ -17,3 +17,5 @@ public fun main(): Unit = application {
         App()
     }
 }
+
+// fix recomposition
