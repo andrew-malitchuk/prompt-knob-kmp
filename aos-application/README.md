@@ -47,3 +47,5 @@ Android-specific entry point. Hosts `MainActivity` (single-activity architecture
 ```bash
 ./gradlew :aos-application:test
 ```
+
+<!-- update CLAUDE.md (2026-05-05) -->
