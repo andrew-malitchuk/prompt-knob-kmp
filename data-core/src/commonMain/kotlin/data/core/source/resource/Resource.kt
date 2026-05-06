@@ -7,3 +7,5 @@ package data.core.source.resource
  * representations should implement this interface to maintain architectural consistency.
  */
 public interface Resource
+
+// lazy init dependency
