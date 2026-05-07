@@ -9,3 +9,5 @@ import data.preference.api.source.model.LanguagePreference
  * @see LanguagePreference
  */
 public interface LanguagePreferenceSource : PreferenceSource<LanguagePreference>
+
+// wire up viewmodel
