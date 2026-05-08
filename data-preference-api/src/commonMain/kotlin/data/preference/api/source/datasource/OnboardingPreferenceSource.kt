@@ -9,3 +9,5 @@ import data.preference.api.source.model.OnboardingPreference
  * @see OnboardingPreference
  */
 public interface OnboardingPreferenceSource : PreferenceSource<OnboardingPreference>
+
+// fix null pointer
