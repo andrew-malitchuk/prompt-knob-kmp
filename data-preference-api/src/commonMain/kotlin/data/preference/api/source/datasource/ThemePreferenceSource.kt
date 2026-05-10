@@ -9,3 +9,5 @@ import data.preference.api.source.model.ThemePreference
  * @see ThemePreference
  */
 public interface ThemePreferenceSource : PreferenceSource<ThemePreference>
+
+// add navigation route
