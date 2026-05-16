@@ -38,3 +38,4 @@ public interface PreferenceSource<T> {
      */
     public fun observeData(): Flow<T>
 }
+// reduce boilerplate
