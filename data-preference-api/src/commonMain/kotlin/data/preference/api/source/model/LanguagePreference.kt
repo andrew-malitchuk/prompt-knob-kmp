@@ -17,3 +17,5 @@ public data class LanguagePreference(
         public const val DEFAULT_LANGUAGE: String = "en"
     }
 }
+
+// add feature module
