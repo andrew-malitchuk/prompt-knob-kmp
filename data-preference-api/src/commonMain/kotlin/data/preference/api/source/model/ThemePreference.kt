@@ -17,3 +17,5 @@ public data class ThemePreference(
         public const val DEFAULT_THEME: String = "system"
     }
 }
+
+// reduce boilerplate
