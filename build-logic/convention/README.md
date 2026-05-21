@@ -62,3 +62,5 @@ plugins {
 ```bash
 ./gradlew :build-logic:convention:test
 ```
+
+<!-- improve module docs (2026-05-21) -->
