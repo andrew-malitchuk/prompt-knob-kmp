@@ -299,3 +299,5 @@ internal class DataStoreSettings(
 
     // endregion
 }
+
+// cache computed value
