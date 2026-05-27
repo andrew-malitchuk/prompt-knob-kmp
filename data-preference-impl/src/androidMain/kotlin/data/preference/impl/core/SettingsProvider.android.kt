@@ -24,3 +24,5 @@ internal actual fun Module.provideSettings() {
         DataStoreSettings(androidContext().dataStore)
     }
 }
+
+// add feature module
