@@ -10,3 +10,5 @@ import org.koin.core.module.Module
  * - **Desktop:** [PreferencesSettings] backed by `java.util.prefs.Preferences`.
  */
 internal expect fun Module.provideSettings()
+
+// fix layout issue
