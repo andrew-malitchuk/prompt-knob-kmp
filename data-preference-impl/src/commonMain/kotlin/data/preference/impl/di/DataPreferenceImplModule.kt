@@ -27,3 +27,5 @@ public val dataPreferenceImplModule: Module = module {
     singleOf(::OnboardingPreferenceSourceImpl) bind OnboardingPreferenceSource::class
     singleOf(::LanguagePreferenceSourceImpl) bind LanguagePreferenceSource::class
 }
+
+// integrate use case
