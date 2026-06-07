@@ -66,3 +66,5 @@ internal class ThemePreferenceSourceImpl(
         const val KEY_THEME = "pref_theme"
     }
 }
+
+// fix recomposition
