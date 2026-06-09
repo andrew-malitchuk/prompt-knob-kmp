@@ -20,3 +20,5 @@ internal actual fun Module.provideSettings() {
         PreferencesSettings(Preferences.userRoot().node("promptknob"))
     }
 }
+
+// simplify logic
