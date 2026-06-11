@@ -42,3 +42,5 @@ executeCoroutine(
 ```bash
 ./gradlew :common-core:test
 ```
+
+<!-- expand documentation (2026-06-11) -->
