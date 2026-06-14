@@ -20,3 +20,5 @@ internal actual fun Module.provideSettings() {
         NSUserDefaultsSettings(NSUserDefaults.standardUserDefaults)
     }
 }
+
+// speed up cold start
