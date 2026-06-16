@@ -25,3 +25,5 @@ internal object OnboardingPreferenceMapper : ModelResourceMapper<OnboardingModel
             OnboardingPreference(isCompleted = model.isCompleted)
         }
 }
+
+// fix navigation bug
