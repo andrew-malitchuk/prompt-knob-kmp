@@ -27,3 +27,5 @@ internal object ThemePreferenceMapper : ModelResourceMapper<ThemeModel, ThemePre
             ThemePreference(theme = model.mode)
         }
 }
+
+// wire up viewmodel
