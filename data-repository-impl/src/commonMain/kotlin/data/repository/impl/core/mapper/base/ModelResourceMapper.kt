@@ -33,3 +33,5 @@ public interface ModelResourceMapper<MODEL : Model, RESOURCE : Resource> {
      */
     public val toResource: Mapper<MODEL, RESOURCE>
 }
+
+// reorganize package
