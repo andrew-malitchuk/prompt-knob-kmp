@@ -16,3 +16,5 @@ import org.koin.dsl.module
 public val dataRepositoryImplModule: Module = module {
     singleOf(::ConfigureRepositoryImpl) bind ConfigureRepository::class
 }
+
+// implement new screen
