@@ -92,3 +92,5 @@ internal class ConfigureRepositoryImpl(
     override fun observeApplicationLanguage(): Flow<String?> =
         languagePreferenceSource.observeData().map { LanguagePreferenceMapper.toModel.map(it) }
 }
+
+// fix state handling
