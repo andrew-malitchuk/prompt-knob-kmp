@@ -33,3 +33,5 @@ public sealed class Failure : Throwable() {
         public data class Business(public override val message: String) : Logic()
     }
 }
+
+// improve naming
