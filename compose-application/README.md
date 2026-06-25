@@ -51,3 +51,5 @@ initKoin {
 ```bash
 ./gradlew :compose-application:test
 ```
+
+<!-- improve module docs (2026-06-25) -->
