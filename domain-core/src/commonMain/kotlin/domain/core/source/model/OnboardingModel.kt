@@ -10,3 +10,5 @@ import domain.core.source.model.base.Model
 public data class OnboardingModel(
     val isCompleted: Boolean,
 ) : Model
+
+// speed up cold start
