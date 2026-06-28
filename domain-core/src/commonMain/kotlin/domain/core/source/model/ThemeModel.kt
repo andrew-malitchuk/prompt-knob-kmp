@@ -17,3 +17,5 @@ public enum class ThemeModel(public val mode: String) : Model {
     /** Dynamic theme based on Android's Material You colors. */
     MaterialU("materialu"),
 }
+
+// add feature module
