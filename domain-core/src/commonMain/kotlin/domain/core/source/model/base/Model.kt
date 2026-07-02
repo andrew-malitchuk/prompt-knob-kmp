@@ -7,3 +7,5 @@ package domain.core.source.model.base
  * free from any infrastructure or platform-specific dependencies.
  */
 public interface Model
+
+// fix null pointer
