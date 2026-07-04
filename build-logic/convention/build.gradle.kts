@@ -38,27 +38,25 @@ gradlePlugin {
         register("dev.prompt.knob.io.convention.feature") {
             id = "dev.prompt.knob.io.convention.feature"
             implementationClass =
-                "dev.prompt.knob.io.convention.source.plugin.FeatureConventionPlugin"
+                "dev.prompt.knob.io.convention.source.convention.feature.FeatureConventionPlugin"
         }
         // Application module convention plugin
         register("dev.prompt.knob.io.convention.application") {
             id = "dev.prompt.knob.io.convention.application"
             implementationClass =
-                "dev.prompt.knob.io.convention.source.plugin.ApplicationConventionPlugin"
+                "dev.prompt.knob.io.convention.source.convention.application.ApplicationConventionPlugin"
         }
         // Library module convention plugin
         register("dev.prompt.knob.io.convention.library") {
             id = "dev.prompt.knob.io.convention.library"
             implementationClass =
-                "dev.prompt.knob.io.convention.source.plugin.LibraryConventionPlugin"
+                "dev.prompt.knob.io.convention.source.convention.library.LibraryConventionPlugin"
         }
         // Dependency injection convention plugin
         register("dev.prompt.knob.io.convention.di") {
             id = "dev.prompt.knob.io.convention.di"
             implementationClass =
-                "dev.prompt.knob.io.convention.source.plugin.DiConventionPlugin"
+                "dev.prompt.knob.io.convention.source.convention.di.DiConventionPlugin"
         }
     }
 }
-
-// tune gradle config
