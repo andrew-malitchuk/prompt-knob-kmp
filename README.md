@@ -10,62 +10,6 @@ PromptKnob is a Kotlin Multiplatform companion app for the PromptKnob hardware (
 
 Built with a modular architecture: full build system, Koin DI, type-safe navigation, a complete UI component library, onboarding, settings, presets, and localisation/theme infrastructure.
 
-## Module Structure
-
-The project has 35 Gradle modules. The tree below is an abridged overview of the
-main groups — see [Module Structure](docs/architecture/module-structure.md) for the
-complete list and dependency graph.
-
-```
-prompt-knob-kmp/
-├── build-logic/convention/          ← Gradle convention plugins
-├── compose-application/             ← KMP app entry point (common, Android, iOS, Desktop)
-├── aos-application/                 ← Android-specific application module
-├── ios-application/                 ← Xcode project / iOS entry point
-│
-├── presentation-feature-splash/     ← Splash / reconnect screen
-├── presentation-feature-onboarding/ ← First-launch onboarding flow
-├── presentation-feature-home/       ← Home (routing) screen
-├── presentation-feature-devices/    ← Device scan & pair
-├── presentation-feature-device/     ← Device dashboard
-├── presentation-feature-command/    ← Command list & command form
-├── presentation-feature-preset/     ← Preset gallery & import/export
-├── presentation-feature-settings/   ← Settings screen
-├── presentation-feature-about/      ← About screen
-│
-├── presentation-core-ui/            ← Shared UI component library (atoms → organisms)
-├── presentation-core-styling/       ← Material3 theme, colours, typography
-├── presentation-core-localisation/  ← String resources & language switching
-├── presentation-core-navigation-api/   ← Destination sealed class & AppNavigator interface
-├── presentation-core-navigation-impl/  ← Navigation host (Navigation 3)
-│
-├── domain-core/                     ← Shared domain models & Failure hierarchy
-├── domain-repository-api/           ← Repository interfaces
-├── domain-usecase-api/              ← Use case interfaces
-├── domain-usecase-impl/             ← Use case implementations (theme, language, onboarding)
-│
-├── data-preference-api/ · -impl/    ← Preferences (DataStore / NSUserDefaults / java.util.prefs)
-├── data-database-api/ · -impl/      ← Room database (command tree + history)
-├── data-ble-api/ · -impl/           ← BLE scanning, connection, YAMK codec, foreground service
-├── data-executor-api/ · -impl/      ← Command execution (Assistant, Siri, shell, system)
-├── data-mcp-api/ · -impl/           ← MCP server (Claude Code integration)
-├── data-runtime-api/ · -impl/       ← Runtime / hook-server wiring
-├── data-repository-impl/            ← Repository implementations
-├── data-core/                       ← Shared data-layer markers
-└── common-core/                     ← Shared utilities
-```
-
-## Convention Plugins
-
-Defined in `build-logic/convention` under the `dev.prompt.knob.io.convention` namespace:
-
-| Plugin ID | Purpose |
-|---|---|
-| `dev.prompt.knob.io.convention.application` | Android/iOS app module setup |
-| `dev.prompt.knob.io.convention.feature` | Feature modules with Compose & Orbit MVI |
-| `dev.prompt.knob.io.convention.library` | Shared library modules |
-| `dev.prompt.knob.io.convention.di` | Koin DI wiring |
-
 ## Build Commands
 
 ```bash
