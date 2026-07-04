@@ -1,6 +1,6 @@
 package domain.usecase.impl.core
 
-import domain.core.monad.Failure
+import domain.core.source.monad.Failure
 
 /**
  * Executes [block] and wraps its result in [Result.success].

@@ -40,6 +40,16 @@ public interface ConfigureRepository {
 
     /** Observes changes to the application language locale code. */
     public fun observeApplicationLanguage(): Flow<String?>
-}
 
-// add extension helper
+    /** Retrieves the MCP server enabled state. */
+    public suspend fun getMcpEnabled(): Boolean?
+
+    /** Updates the MCP server [enabled] state. */
+    public suspend fun setMcpEnabled(enabled: Boolean)
+
+    /** Retrieves the Claude Mode hook server enabled state. */
+    public suspend fun getClaudeHookEnabled(): Boolean?
+
+    /** Updates the Claude Mode hook server [enabled] state. */
+    public suspend fun setClaudeHookEnabled(enabled: Boolean)
+}
