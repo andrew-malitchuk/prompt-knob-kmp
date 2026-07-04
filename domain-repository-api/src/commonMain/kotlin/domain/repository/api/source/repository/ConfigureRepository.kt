@@ -41,3 +41,5 @@ public interface ConfigureRepository {
     /** Observes changes to the application language locale code. */
     public fun observeApplicationLanguage(): Flow<String?>
 }
+
+// add extension helper
