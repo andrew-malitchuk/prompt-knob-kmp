@@ -1,4 +1,4 @@
-package domain.core.monad
+package domain.core.source.monad
 
 /**
  * Base sealed class for representing all possible failures within the domain layer.
@@ -33,5 +33,3 @@ public sealed class Failure : Throwable() {
         public data class Business(public override val message: String) : Logic()
     }
 }
-
-// improve naming

@@ -8,5 +8,3 @@ kotlin {
         }
     }
 }
-
-// align versions
