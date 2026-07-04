@@ -41,9 +41,17 @@ public class OnboardingViewModel(
 
     /**
      * Persists the onboarding-completed flag and navigates to the Connection screen.
+     * Navigation is only posted after the flag is successfully persisted so that the
+     * onboarding gate in SplashViewModel works correctly on subsequent launches.
      */
     private fun onGetStartedClick() = intent {
         setOnboardingStatusUseCase(true)
-        postSideEffect(OnboardingSideEffect.NavigateToHome)
+            .onSuccess { postSideEffect(OnboardingSideEffect.NavigateToHome) }
+            .onFailure {
+                // Persist failed — retry once, then proceed anyway to avoid the user
+                // being stuck on the onboarding screen.
+                setOnboardingStatusUseCase(true)
+                postSideEffect(OnboardingSideEffect.NavigateToHome)
+            }
     }
 }

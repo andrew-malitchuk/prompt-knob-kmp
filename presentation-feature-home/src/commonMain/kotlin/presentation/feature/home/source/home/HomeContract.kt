@@ -23,6 +23,15 @@ public sealed class HomeSideEffect {
     /** Navigate to the design-system styleguide showcase. */
     public data object NavigateToStyleguide : HomeSideEffect()
 
+    /** Navigate to the BLE devices screen (scanning/pairing). */
+    public data object NavigateToDevices : HomeSideEffect()
+
+    /** Navigate to the preset gallery screen. */
+    public data object NavigateToPresets : HomeSideEffect()
+
+    /** Navigate directly to the device detail screen (device already connected). */
+    public data object NavigateToDevice : HomeSideEffect()
+
     /**
      * Display an error snackbar.
      *
@@ -42,4 +51,10 @@ public sealed class HomeIntent {
 
     /** The user tapped the styleguide button. */
     public data object OnStyleguideClick : HomeIntent()
+
+    /** The user tapped the device (BLE) button. */
+    public data object OnDeviceClick : HomeIntent()
+
+    /** The user tapped the presets button. */
+    public data object OnPresetsClick : HomeIntent()
 }

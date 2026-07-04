@@ -11,6 +11,5 @@ import presentation.feature.onboarding.source.onboarding.OnboardingViewModel
  * Registers [OnboardingViewModel] so it can be injected via `koinViewModel()`.
  */
 public val presentationFeatureOnboardingModule: Module = module {
-    // Provides OnboardingViewModel with its SetOnboardingStatusUseCase dependency
     viewModelOf(::OnboardingViewModel)
 }
