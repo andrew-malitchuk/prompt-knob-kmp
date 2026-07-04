@@ -3,29 +3,33 @@ package dev.prompt.knob.io.convention.core.ext
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.api.plugins.PluginManager
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
- * Contains reference for `libs.versions.toml`
+ * Retrieves the `libs` [VersionCatalog] registered in this project's settings.
  *
- * @receiver Project
+ * Provides type-safe access to versions, libraries, and plugins declared in
+ * `gradle/libs.versions.toml` without relying on string-based lookups at
+ * the call site.
  */
-val Project.libs
-    get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+internal val Project.libs: VersionCatalog
+    get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 /**
- * Returns the module name for the current project.
+ * Derives a dot-separated module name from the Gradle project [path].
  *
- * Converts the project path by removing colons and replacing hyphens with dots.
+ * Strips the leading colon and converts hyphens to dots so that the result
+ * can be used directly as an Android namespace or iOS framework `baseName`.
  *
- * Example: ":feature-login" becomes "feature.login"
+ * Examples:
+ * - `:feature-login` → `feature.login`
+ * - `:data-ble-impl` → `data.ble.impl`
  *
- * @receiver Project
- * @return The formatted module name as a String.
+ * NOTE: Returns an empty string for the root project (path `":"`).
+ * Convention plugins must never be applied to the root project — doing so
+ * would produce an empty Android namespace and fail the build with an
+ * unhelpful error message.
  */
-val Project.moduleName
-    get(): String =
-        path.replace(":", "").replace("-", ".")
-// reduce boilerplate
+internal val Project.moduleName: String
+    get() = path.replace(":", "").replace("-", ".")

@@ -1,9 +1,9 @@
-package dev.prompt.knob.io.convention.source.plugin
+package dev.prompt.knob.io.convention.source.convention.feature
 
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import dev.prompt.knob.io.convention.core.ext.libs
 import dev.prompt.knob.io.convention.core.ext.moduleName
-import dev.prompt.knob.io.convention.source.plugin.base.BaseConventionPlugin
+import dev.prompt.knob.io.convention.source.convention.base.BaseConventionPlugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
@@ -11,14 +11,25 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
- * Convention plugin for feature modules.
+ * Convention plugin for UI-layer feature modules (`presentation-feature-*`).
  *
- * Uses `com.android.kotlin.multiplatform.library` (AGP 9.0) instead of `com.android.library`.
+ * Applies the AGP 9.0 `com.android.kotlin.multiplatform.library` plugin together with
+ * KMP and Compose Multiplatform plugins. Registers Android, iOS, macOS, and Desktop JVM
+ * targets and wires the full Compose + coroutines + lifecycle dependency set to `commonMain`.
+ *
+ * Feature modules differ from [ApplicationConventionPlugin] in that each module's
+ * iOS framework `baseName` is derived from [moduleName] rather than being hardcoded.
+ * Feature modules differ from [LibraryConventionPlugin] in that they include Compose
+ * dependencies and enable `androidResources`.
+ *
+ * @see LibraryConventionPlugin
+ * @see ApplicationConventionPlugin
  */
 class FeatureConventionPlugin : BaseConventionPlugin() {
 
     /**
-     * Applies the necessary plugins for a feature module.
+     * Applies KMP, Android multiplatform library, Compose Multiplatform,
+     * and Compose Compiler plugins.
      */
     override fun Project.configurePlugin() = with(project.pluginManager) {
         apply(libs.findPlugin("kotlinMultiplatform").get().get().pluginId)
@@ -28,12 +39,15 @@ class FeatureConventionPlugin : BaseConventionPlugin() {
     }
 
     /**
-     * Configures the Android platform using the new KMP android library DSL.
+     * Configures the Android KMP library target with SDK versions, `androidResources`,
+     * and JVM 21 compiler options.
+     *
+     * Uses [KotlinMultiplatformAndroidLibraryTarget] — the AGP 9.0 DSL replacement for
+     * the legacy `android {}` block.
      */
     override fun Project.configureAndroidPlatform() {
         val minSdkVersion = libs.findVersion("minSdk").get().requiredVersion.toInt()
         val targetSdk = libs.findVersion("targetSdk").get().requiredVersion.toInt()
-
         extensions.getByType<KotlinMultiplatformExtension>().apply {
             targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
                 namespace = moduleName
@@ -48,10 +62,10 @@ class FeatureConventionPlugin : BaseConventionPlugin() {
     }
 
     /**
-     * Configures the iOS platform for the feature module.
+     * Registers iOS targets with a static framework whose `baseName` is derived from [moduleName].
      *
-     * Note: androidTarget() is no longer called — the
-     * `com.android.kotlin.multiplatform.library` plugin registers it automatically.
+     * NOTE: `androidTarget()` is registered automatically by the
+     * `com.android.kotlin.multiplatform.library` plugin and must not be called manually.
      */
     override fun Project.configureIOsPlatform() {
         extensions.getByType<KotlinMultiplatformExtension>().apply {
@@ -65,14 +79,27 @@ class FeatureConventionPlugin : BaseConventionPlugin() {
                     isStatic = true
                 }
             }
+        }
+    }
+
+    /**
+     * Registers macOS (x64, arm64) and Desktop JVM targets for the feature module.
+     */
+    override fun Project.configureDesktopPlatform() {
+        extensions.getByType<KotlinMultiplatformExtension>().apply {
+            macosX64()
+            macosArm64()
             jvm("desktop")
         }
     }
 
     /**
-     * Configures common dependencies for all source sets.
+     * Adds Compose runtime, foundation, material, UI, resources, UI tooling preview,
+     * coroutines, and lifecycle libraries to `commonMain`.
      *
-     * @see <a href="https://slack-chats.kotlinlang.org/t/23173883/web-target-it-works-with-ios-android-desktop-but-now-my-wasm">Slack discussion</a>
+     * Enforces explicit API mode for all declarations in this module.
+     *
+     * @see <a href="https://slack-chats.kotlinlang.org/t/23173883/web-target-it-works-with-ios-android-desktop-but-now-my-wasm">Slack discussion on Compose multiplatform target wiring</a>
      */
     override fun Project.configureCommonDependencies() {
         val composeDependencies = extensions.getByType<ComposeExtension>().dependencies
@@ -96,15 +123,31 @@ class FeatureConventionPlugin : BaseConventionPlugin() {
     }
 
     /**
-     * Configures Android-specific dependencies including Compose UI tooling for previews.
+     * Adds Compose UI tooling to `androidRuntimeClasspath` for Android Studio preview support.
      *
-     * Uses `androidRuntimeClasspath` as required by the `com.android.kotlin.multiplatform.library` plugin.
+     * NOTE: `androidRuntimeClasspath` is the correct configuration name for the
+     * `com.android.kotlin.multiplatform.library` plugin — `debugImplementation` is
+     * not available in the KMP Android library DSL.
      */
     override fun Project.configureAndroidDependencies() {
         val composeDependencies = extensions.getByType<ComposeExtension>().dependencies
         project.dependencies.add("androidRuntimeClasspath", composeDependencies.uiTooling)
     }
 
+    /**
+     * Adds `compose.desktop.currentOs` and `kotlinx-coroutines-swing` to `desktopMain`.
+     *
+     * `compose.desktop.currentOs` provides the platform-specific Compose Desktop renderer.
+     * `kotlinx-coroutines-swing` supplies the Swing-aware coroutine dispatcher needed for
+     * correct coroutine behaviour on the Desktop JVM target.
+     */
+    override fun Project.configureDesktopDependencies() {
+        val composeDependencies = extensions.getByType<ComposeExtension>().dependencies
+        extensions.getByType<KotlinMultiplatformExtension>().apply {
+            sourceSets.getByName("desktopMain").dependencies {
+                implementation(composeDependencies.desktop.currentOs)
+                implementation(libs.findLibrary("kotlinx-coroutines-swing").get())
+            }
+        }
+    }
 }
-
-// integrate use case
