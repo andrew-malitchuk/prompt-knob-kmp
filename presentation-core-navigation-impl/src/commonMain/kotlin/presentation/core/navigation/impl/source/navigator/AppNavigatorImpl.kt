@@ -21,7 +21,9 @@ public class AppNavigatorImpl(
 ) : AppNavigator {
 
     override fun popBackStack() {
-        backStack.removeLastOrNull()
+        // Never pop the final entry: NavDisplay throws IllegalArgumentException
+        // ("backstack cannot be empty") if the back stack is ever emptied.
+        if (backStack.size > 1) backStack.removeLastOrNull()
     }
 
     override fun navigate(destination: Destination, options: AppNavigator.NavOptions) {
@@ -31,8 +33,11 @@ public class AppNavigatorImpl(
                 if (backStack.lastOrNull() != destination) backStack.add(destination)
             }
             ClearTask -> {
-                while (backStack.isNotEmpty()) backStack.removeLastOrNull()
+                // Push the new destination first, then trim everything below it. This keeps
+                // the back stack non-empty at every observable point — clearing first would
+                // leave it transiently empty and can crash NavDisplay mid-recomposition.
                 backStack.add(destination)
+                while (backStack.size > 1) backStack.removeAt(0)
             }
         }
     }

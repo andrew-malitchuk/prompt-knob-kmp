@@ -26,6 +26,12 @@ public val navSavedStateConfiguration: SavedStateConfiguration =
                 subclass(Destination.Settings::class, Destination.Settings.serializer())
                 subclass(Destination.About::class, Destination.About.serializer())
                 subclass(Destination.Styleguide::class, Destination.Styleguide.serializer())
+                subclass(Destination.Devices::class, Destination.Devices.serializer())
+                subclass(Destination.Device::class, Destination.Device.serializer())
+                subclass(Destination.LanguagePicker::class, Destination.LanguagePicker.serializer())
+                subclass(Destination.CommandList::class, Destination.CommandList.serializer())
+                subclass(Destination.CommandForm::class, Destination.CommandForm.serializer())
+                subclass(Destination.Presets::class, Destination.Presets.serializer())
             }
         }
     }

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Onboarding -->
-    <string name="onboarding_title">Ласкаво просимо</string>
-    <string name="onboarding_description">Пройдіть швидке налаштування, щоб персоналізувати свій досвід.</string>
-    <string name="onboarding_get_started">Розпочати</string>
+    <string name="onboarding_title">PROMPT KNOB</string>
+    <string name="onboarding_description">АВТОМАТИЗУЙ СВІЙ РОБОЧИЙ ПРОЦЕС</string>
+    <string name="onboarding_get_started">РОЗПОЧАТИ</string>
 
     <!-- Splash -->
-    <string name="splash_title">Завантаження</string>
+    <string name="splash_title">PROMPT KNOB</string>
+    <string name="splash_description">АВТОМАТИЗУЙ СВІЙ РОБОЧИЙ ПРОЦЕС</string>
+    <string name="splash_get_started">РОЗПОЧАТИ</string>
+    <string name="splash_connecting">ПІДКЛЮЧЕННЯ ДО ПРИСТРОЮ…</string>
 
     <!-- Settings -->
-    <string name="settings_title">Налаштування</string>
+    <string name="settings_title">НАЛАШТУВАННЯ</string>
     <string name="settings_language">Мова</string>
     <string name="settings_language_en">English</string>
     <string name="settings_language_uk">Українська</string>
@@ -18,8 +21,254 @@
     <string name="settings_theme">Тема</string>
     <string name="settings_theme_light">Світла</string>
     <string name="settings_theme_dark">Темна</string>
+    <!-- Settings - Permissions -->
+    <string name="settings_permissions">ДОЗВОЛИ</string>
+    <string name="settings_bluetooth_access">ДОСТУП ДО BLUETOOTH</string>
+    <string name="settings_bluetooth_subtitle">СИНХРОНІЗАЦІЯ БЕЗДРОТОВОГО З\'ЄДНАННЯ</string>
+    <string name="settings_bluetooth_request">ЗАПРОСИТИ</string>
+    <string name="settings_bluetooth_granted">НАДАНО</string>
+    <string name="settings_accessibility_access">СЛУЖБА ДОСТУПНОСТІ</string>
+    <string name="settings_accessibility_subtitle">НЕОБХІДНО ДЛЯ КОМАНД</string>
+    <string name="settings_accessibility_enable">УВІМКНУТИ</string>
+    <string name="settings_accessibility_granted">АКТИВНО</string>
+    <!-- Settings - Appearance -->
+    <string name="settings_appearance">ВИГЛЯД</string>
+    <string name="settings_language_selector">ВИБІР МОВИ</string>
+    <string name="settings_theme_selector">ВИБІР ТЕМИ</string>
+    <string name="settings_theme_monolith">МОНОЛІТ</string>
+    <string name="settings_theme_monolith_subtitle">ВИСОКИЙ КОНТРАСТ ТЕМНА</string>
+    <string name="settings_theme_brutalist">БРУТАЛЬНА</string>
+    <string name="settings_theme_brutalist_subtitle">СІРА ШКАЛА</string>
+    <!-- Settings - Info -->
+    <string name="settings_core_version">ВЕРСІЯ ЯДРА</string>
+    <string name="settings_hardware_status">СТАН ОБЛАДНАННЯ</string>
+    <string name="settings_connected_via_ble">ПІДКЛЮЧЕНО ЧЕРЕЗ BLE</string>
+    <string name="settings_disconnected">ВІДКЛЮЧЕНО</string>
+    <string name="settings_connecting">ПІДКЛЮЧЕННЯ</string>
+    <!-- Settings - System Registry -->
+    <string name="settings_system_registry">СИСТЕМНИЙ РЕЄСТР</string>
+    <string name="settings_default_node_name">PROMPT_KNOB_NODE_01</string>
+    <!-- Settings - Footer -->
+    <string name="settings_system_info">СИСТЕМНА ІНФОРМАЦІЯ</string>
+    <string name="settings_copyright">PROMPT KNOB © 2024</string>
 
     <!-- Error -->
     <string name="error_title">Ой, щось пішло не так</string>
     <string name="error_description">Ми вже працюємо над виправленням. Спробуйте пізніше.</string>
+
+    <!-- Device / BLE -->
+    <string name="device_title">ПІДКЛЮЧИТИ ПРИСТРІЙ</string>
+    <string name="device_status_active">ПОШУК АКТИВНИЙ</string>
+    <string name="device_status_connected">ПРИСТРІЙ ПІДКЛЮЧЕНО</string>
+    <string name="device_status_standby">СИСТЕМА В РЕЖИМІ ОЧІКУВАННЯ</string>
+    <string name="device_status_scanning">СТАТУС: ПОШУК</string>
+    <string name="device_scanning">ПОШУК…</string>
+    <string name="device_frequency_label">2ГГЦ / BTLE</string>
+    <string name="device_discovered_units">ЗНАЙДЕНІ ПРИСТРОЇ</string>
+    <string name="device_devices_found">%1$d ПРИСТРОЇВ ЗНАЙДЕНО</string>
+    <string name="device_manual_pair">РУЧНЕ СПОЛУЧЕННЯ</string>
+    <string name="device_ble_unavailable">BLUETOOTH НЕДОСТУПНИЙ НА ЦІЙ ПЛАТФОРМІ</string>
+    <string name="device_permission_title">НЕОБХІДНИЙ ДОЗВІЛ</string>
+    <string name="device_permission_body">ДЛЯ ПІДКЛЮЧЕННЯ ДО ПРИСТРОЮ НЕОБХІДНИЙ ДОЗВІЛ BLUETOOTH</string>
+    <string name="device_grant_permission">НАДАТИ ДОЗВІЛ</string>
+    <string name="device_disconnect">ВІДКЛЮЧИТИ</string>
+    <string name="device_connected">ПІДКЛЮЧЕНО</string>
+    <string name="device_connecting">ПІДКЛЮЧЕННЯ…</string>
+    <string name="device_disconnecting">ВІДКЛЮЧЕННЯ…</string>
+    <string name="device_disconnected">ВІДКЛЮЧЕНО</string>
+    <string name="device_unknown_device">НЕВІДОМИЙ ПРИСТРІЙ</string>
+    <string name="device_rssi_unit">дБм</string>
+    <string name="device_signal_label">СИГНАЛ</string>
+    <string name="device_reconnecting">ПЕРЕПІДКЛЮЧЕННЯ…</string>
+    <string name="device_scan_timeout_title">ПРИСТРІЙ НЕ ЗНАЙДЕНО</string>
+    <string name="device_scan_timeout_hint_power">ПЕРЕВІРТЕ ІНДИКАТОР ЖИВЛЕННЯ</string>
+    <string name="device_scan_timeout_hint_range">НАБЛИЗЬТЕ ПРИСТРІЙ</string>
+    <string name="device_scan_timeout_hint_restart">ПЕРЕЗАПУСТІТЬ ПРИСТРІЙ ТА СПРОБУЙТЕ ЗНОВУ</string>
+    <string name="device_scan_retry">СКАНУВАТИ ЗНОВУ</string>
+    <string name="device_bluetooth_disabled_title">BLUETOOTH ВИМКНЕНО</string>
+    <string name="device_bluetooth_disabled_body">УВІМКНІТЬ BLUETOOTH ДЛЯ ПОШУКУ ПРИСТРОЮ</string>
+    <string name="device_bluetooth_open_settings">ВІДКРИТИ НАЛАШТУВАННЯ BLUETOOTH</string>
+
+    <!-- Device Detail / Dashboard -->
+    <string name="device_detail_current_hardware">ПОТОЧНЕ ОБЛАДНАННЯ</string>
+    <string name="device_detail_status">СТАТУС</string>
+    <string name="device_detail_firmware">ПРОШИВКА</string>
+    <string name="device_detail_battery">БАТАРЕЯ</string>
+    <string name="device_detail_active_macros">АКТИВНІ МАКРОСИ</string>
+    <string name="device_detail_layer_label">ШАР 01 / PRO</string>
+    <string name="device_detail_hardware_render">РЕНДЕР ОБЛАДНАННЯ</string>
+    <string name="device_detail_chassis">КОРПУС МОНОЛІТ</string>
+    <string name="device_detail_profile_load">ЗАВАНТАЖЕННЯ ПРОФІЛЮ</string>
+    <string name="device_detail_add_macro">ДОДАТИ МАКРОС</string>
+    <string name="device_detail_disconnect">ВІДКЛЮЧИТИ ПРИСТРІЙ</string>
+    <string name="device_detail_forget">ЗАБУТИ ПРИСТРІЙ</string>
+    <string name="device_detail_force_sync">ПРИМУСОВА СИНХРОНІЗАЦІЯ</string>
+    <string name="device_detail_update_firmware">ОНОВИТИ ПРОШИВКУ</string>
+    <string name="settings_erase_all_data">ВИДАЛИТИ ВСІ ДАНІ</string>
+    <string name="device_detail_no_macros">МАКРОСИ НЕ НАЛАШТОВАНО</string>
+    <!-- OTA -->
+    <string name="ota_waiting">ОЧІКУВАННЯ ПРИСТРОЮ…</string>
+    <string name="ota_receiving">ЗАВАНТАЖЕННЯ ПРОШИВКИ</string>
+    <string name="ota_verifying">ПЕРЕВІРКА…</string>
+    <string name="ota_done">ОНОВЛЕННЯ ЗАВЕРШЕНО</string>
+    <string name="ota_done_subtitle">ПРИСТРІЙ ПЕРЕЗАВАНТАЖУЄТЬСЯ</string>
+    <string name="ota_abort">СКАСУВАТИ</string>
+    <string name="ota_err_crc">ПОШКОДЖЕНИЙ ФАЙЛ</string>
+    <string name="ota_err_flash">ПОМИЛКА ЗАПИСУ FLASH</string>
+    <string name="ota_err_too_large">ФАЙЛ ЗАВЕЛИКИЙ</string>
+    <string name="ota_err_battery">НЕДОСТАТНЬО ЗАРЯДУ</string>
+    <string name="ota_err_bad_begin">НЕВІРНИЙ ЗАПИТ</string>
+    <string name="ota_err_disconnected">З\'ЄДНАННЯ ВТРАЧЕНО</string>
+    <string name="ota_err_subtitle">ОНОВЛЕННЯ НЕ ВДАЛОСЬ — СПРОБУЙТЕ ЗНОВУ</string>
+
+    <!-- Command List -->
+    <string name="command_list_title">КОМАНДИ</string>
+    <string name="command_list_empty">КОМАНДИ ВІДСУТНІ</string>
+    <string name="command_list_add_command">ДОДАТИ КОМАНДУ</string>
+    <string name="command_list_add_folder">ДОДАТИ ПАПКУ</string>
+    <string name="command_list_delete_folder">ВИДАЛИТИ ПАПКУ</string>
+
+    <!-- Command Form -->
+    <string name="command_form_title_create">НОВА КОМАНДА</string>
+    <string name="command_form_title_edit">РЕДАГУВАТИ КОМАНДУ</string>
+    <string name="command_form_creator_label">ТВОРЕЦЬ</string>
+    <string name="command_form_cancel">СКАСУВАТИ</string>
+    <string name="command_form_button_preview">ПОПЕРЕДНІЙ ПЕРЕГЛЯД</string>
+    <string name="command_form_default_name">НОВИЙ_МАКРОС</string>
+    <string name="command_form_name_label">НАЗВА МАКРОСУ</string>
+    <string name="command_form_name_hint">НАПР. СТРИМ_СТАРТ</string>
+    <string name="command_form_command_label">РЯДОК КОМАНДИ</string>
+    <string name="command_form_command_hint">CTRL + ALT + SHIFT + F12</string>
+    <string name="command_form_select_icon">ВИБРАТИ ІКОНКУ</string>
+    <string name="command_form_icon_count">%1$d ДОСТУПНО ВСЬОГО</string>
+    <string name="command_form_utf8_tag">UTF-8 RAW</string>
+    <string name="command_form_test_run">ТЕСТ</string>
+    <string name="command_form_save">ЗБЕРЕГТИ МАКРОС</string>
+    <string name="command_form_delete">ВИДАЛИТИ</string>
+    <string name="command_form_name_required">НАЗВА ОБОВ\'ЯЗКОВА</string>
+    <string name="command_form_command_required">КОМАНДА ОБОВ\'ЯЗКОВА</string>
+    <string name="command_form_status_ready">СИСТЕМА ГОТОВА ДО ВИКОНАННЯ</string>
+    <string name="command_form_type_label">ТИП ВИКОНАННЯ</string>
+    <string name="command_form_type_system">СИСТЕМНА</string>
+    <string name="command_form_type_prompt">ЗАПИТ</string>
+    <string name="command_form_type_shell">SHELL</string>
+    <string name="command_form_type_shortcut">СКОРОЧЕННЯ</string>
+
+    <!-- Rotary -->
+    <string name="command_form_rotary_label">ПОВОРОТНИЙ ЕНКОДЕР</string>
+    <string name="command_form_rotary_hint">УВІМКНІТЬ ДЛЯ ПРИЗНАЧЕННЯ ОКРЕМИХ КОМАНД НА ОБЕРТАННЯ ЗА ТА ПРОТИ ГОДИННИКОВОЇ СТРІЛКИ</string>
+    <string name="command_form_rotary_standard">СТАНДАРТНА</string>
+    <string name="command_form_rotary_rotary">ПОВОРОТНА</string>
+    <string name="command_form_agent_label">АГЕНТ</string>
+    <string name="command_form_agent_hint">ПРИ ВИБОРІ ВІДКРИВАЄТЬСЯ ЕКРАН CLAUDE НА ПРИСТРОЇ</string>
+    <string name="command_list_rotary_badge">ПОВОРОТНА</string>
+    <string name="command_list_agent_badge">АГЕНТ</string>
+    <string name="command_form_rotary_direction_cw">ЗГС — ЗА ГОДИННИКОВОЮ СТРІЛКОЮ</string>
+    <string name="command_form_rotary_direction_ccw">ПГС — ПРОТИ ГОДИННИКОВОЇ СТРІЛКИ</string>
+    <string name="command_form_rotary_cw_label">КОМАНДА ЗГС</string>
+    <string name="command_form_rotary_ccw_label">КОМАНДА ПГС</string>
+    <string name="command_form_rotary_cw_required">КОМАНДА ЗГС ОБОВ\'ЯЗКОВА</string>
+    <string name="command_form_rotary_ccw_required">КОМАНДА ПГС ОБОВ\'ЯЗКОВА</string>
+    <string name="command_form_rotary_hint_leaf">НАЛАШТУЙТЕ КОМАНДИ ДЛЯ ОБЕРТАННЯ ЗА ТА ПРОТИ ГОДИННИКОВОЇ СТРІЛКИ</string>
+    <!-- Media -->
+    <string name="command_form_mode_media_screen">МЕДІА</string>
+    <string name="command_form_media_hint">ПРИЗНАЧТЕ ДІЇ МЕДІА ДЛЯ ЖЕСТІВ КНОБА</string>
+    <string name="command_form_media_vol_up">ГУЧНІШЕ (ОБЕРТАННЯ ЗГС)</string>
+    <string name="command_form_media_vol_down">ТИХІШЕ (ОБЕРТАННЯ ПГС)</string>
+    <string name="command_form_media_play_pause">ВІДТВОРЕННЯ / ПАУЗА (НАТИСНІТЬ ЦЕНТР)</string>
+    <string name="command_form_media_prev">ПОПЕРЕДНІЙ ТРЕК (НАТИСНІТЬ ЛІВОРУЧ)</string>
+    <string name="command_form_media_next">НАСТУПНИЙ ТРЕК (НАТИСНІТЬ ПРАВОРУЧ)</string>
+
+    <!-- Command Delete Confirmation -->
+    <string name="command_delete_confirm_title">ВИДАЛИТИ ЕЛЕМЕНТ</string>
+    <string name="command_delete_confirm_message">ВИДАЛИТИ %1$s ТА ВЕСЬ ЙОГО ВМІСТ?</string>
+
+    <!-- Home -->
+    <string name="home_action_device">ПРИСТРІЙ</string>
+    <string name="home_action_styleguide">СТИЛЬГАЙД</string>
+    <string name="home_action_presets">ПРЕСЕТИ</string>
+
+    <!-- Command Form - hints -->
+    <string name="command_form_hint_system">ГУЧНІСТЬ / ЯСКРАВІСТЬ / БЛОКУВАННЯ_ЕКРАНУ</string>
+    <string name="command_form_hint_prompt">РОЗКАЖИ ЖАРТ</string>
+    <string name="command_form_hint_shell">osascript -e \'display notification \"Hello\"\'</string>
+    <string name="command_form_hint_shortcut">МОЄ_СКОРОЧЕННЯ</string>
+    <string name="command_form_browse_system">ПЕРЕГЛЯНУТИ СИСТЕМНІ КОМАНДИ</string>
+
+    <!-- Settings - Notification -->
+    <string name="settings_notification_access">ДОСТУП ДО СПОВІЩЕНЬ</string>
+    <string name="settings_notification_subtitle">НЕОБХІДНО ДЛЯ СПОВІЩЕНЬ КОМАНД</string>
+    <string name="settings_notification_enable">УВІМКНУТИ</string>
+    <string name="settings_notification_granted">НАДАНО</string>
+    <!-- Settings - Erase -->
+    <string name="settings_erase_confirm_title">ВИДАЛИТИ ВСІ ДАНІ</string>
+    <string name="settings_erase_confirm_body">ЦЕ ВИДАЛИТЬ УСІ КОМАНДИ, НАЛАШТУВАННЯ ТА СПОЛУЧЕННЯ ПРИСТРОЇВ. ЦЮ ДІЮ НЕМОЖЛИВО СКАСУВАТИ.</string>
+    <string name="settings_erase_confirm_button">ВИДАЛИТИ</string>
+    <string name="settings_erase_cancel_button">СКАСУВАТИ</string>
+
+    <!-- About -->
+    <string name="about_title">ПРО ЗАСТОСУНОК</string>
+    <string name="about_description">АВТОМАТИЗУЙ СВІЙ РОБОЧИЙ ПРОЦЕС</string>
+    <string name="about_version_label">ВЕРСІЯ</string>
+    <string name="about_build_label">ЗБІРКА</string>
+    <string name="about_back">НАЗАД</string>
+    <string name="settings_data_section">ДАНІ</string>
+    <string name="settings_data_export">ЕКСПОРТ КОМАНД</string>
+    <string name="settings_data_import">ІМПОРТ КОМАНД</string>
+    <string name="settings_mcp_section">MCP</string>
+    <string name="settings_mcp_server">MCP СЕРВЕР</string>
+    <string name="settings_mcp_subtitle">ІНТЕГРАЦІЯ З CLAUDE CODE — ПОРТ %1$s</string>
+    <string name="settings_mcp_guide_what_title">ЩО ТАКЕ MCP?</string>
+    <string name="settings_mcp_guide_what_body">Model Context Protocol дозволяє Claude Code взаємодіяти з вашим фізичним кнобом — запитувати підтвердження, пропонувати варіанти вибору та надсилати сповіщення безпосередньо на пристрій.</string>
+    <string name="settings_mcp_guide_how_title">ЯК ПІДКЛЮЧИТИ</string>
+    <string name="settings_mcp_guide_how_body">1. Увімкніть MCP-сервер перемикачем вище.\n2. Додайте сервер до Claude Code, виконавши команду нижче в терміналі.\n3. Перезапустіть Claude Code.</string>
+    <string name="settings_mcp_guide_command_label">КОМАНДА НАЛАШТУВАННЯ</string>
+    <string name="settings_mcp_guide_copy">КОПІЮВАТИ</string>
+    <string name="settings_mcp_guide_copied">СКОПІЙОВАНО</string>
+    <string name="settings_mcp_guide_tools_title">ДОСТУПНІ ІНСТРУМЕНТИ</string>
+    <string name="settings_mcp_guide_tool_approval">request_approval — фізична перевірка так/ні перед ризикованими операціями</string>
+    <string name="settings_mcp_guide_tool_choice">request_choice — оберіть з переліку варіантів, обертаючи кноб</string>
+    <string name="settings_mcp_guide_tool_notify">notify — одностороннє сповіщення про статус на пристрій</string>
+    <string name="history_title">ІСТОРІЯ КОМАНД</string>
+    <string name="history_empty">КОМАНДИ ЩЕ НЕ ВИКОНУВАЛИСЬ</string>
+    <string name="history_clear">ОЧИСТИТИ</string>
+    <string name="history_item_success">УСПІХ</string>
+    <string name="history_item_failure">ПОМИЛКА</string>
+
+    <!-- Preset -->
+    <string name="preset_list_title">Пресети</string>
+    <string name="preset_list_back">Назад</string>
+    <string name="preset_list_save">Зберегти</string>
+    <string name="preset_list_gallery">Галерея</string>
+    <string name="preset_list_my_presets">Мої пресети</string>
+    <string name="preset_use">Використати</string>
+    <string name="preset_load">Завантажити</string>
+    <string name="preset_export">Експортувати</string>
+    <string name="preset_delete_title">Видалити пресет</string>
+    <string name="preset_delete_message">Видалити \"%1$s\"?</string>
+    <string name="preset_delete_confirm">Видалити</string>
+    <string name="preset_cancel">Скасувати</string>
+    <string name="preset_save_dialog_title">Зберегти поточний пресет</string>
+    <string name="preset_save_name_label">Назва</string>
+    <string name="preset_apply_title">ЗАСТОСУВАТИ ПРЕСЕТ</string>
+    <string name="preset_apply_body">Це замінить ваші поточні команди на \"%1$s\". Цю дію неможливо скасувати.</string>
+    <string name="preset_apply_confirm">ЗАСТОСУВАТИ</string>
+
+    <!-- Snackbar -->
+    <string name="snackbar_error">Помилка</string>
+    <string name="settings_import_success">ІМПОРТОВАНО %1$d КОМАНД</string>
+    <string name="settings_claude_section">РЕЖИМ CLAUDE</string>
+    <string name="settings_claude_server">ХУКИ CLAUDE</string>
+    <string name="settings_claude_subtitle">ВІДОБРАЖЕННЯ СТАНУ — ПОРТ %1$s</string>
+    <string name="settings_claude_guide_what_title">ЩО ТАКЕ РЕЖИМ CLAUDE?</string>
+    <string name="settings_claude_guide_what_body">Режим Claude автоматично відображає поточний стан сесії Claude Code на вашому пристрої — робота, очікування, бездіяльність або помилка — через хуки Claude Code.</string>
+    <string name="settings_claude_guide_how_title">ЯК ПІДКЛЮЧИТИ</string>
+    <string name="settings_claude_guide_how_body">1. Увімкніть режим Claude перемикачем вище.\n2. Додайте конфігурацію хуків нижче до вашого ~/.claude/settings.json.\n3. Claude Code тепер автоматично оновлюватиме ваш пристрій.</string>
+    <string name="settings_claude_guide_config_label">КОНФІГ ХУКІВ</string>
+    <string name="settings_claude_guide_copy">КОПІЮВАТИ</string>
+    <string name="settings_claude_guide_copied">СКОПІЙОВАНО</string>
+    <string name="settings_claude_guide_states_title">СТАНИ ПРИСТРОЮ</string>
+    <string name="settings_claude_guide_state_working">working — Claude Code виконує інструмент</string>
+    <string name="settings_claude_guide_state_waiting">waiting — Claude Code очікує вашого введення</string>
+    <string name="settings_claude_guide_state_idle">idle — сесія завершена або немає активної сесії</string>
 </resources>

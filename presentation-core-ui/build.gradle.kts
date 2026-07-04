@@ -10,6 +10,7 @@ kotlin {
             implementation(compose.material3)
 
             implementation(projects.presentationCoreStyling)
+            implementation(libs.kermit)
         }
     }
 }

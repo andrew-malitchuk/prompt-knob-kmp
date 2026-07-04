@@ -8,6 +8,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
+/**
+ * [BookOpen] icon as a Compose [ImageVector].
+ */
 public val BookOpen: ImageVector
     get() {
         if (_BookOpen != null) {

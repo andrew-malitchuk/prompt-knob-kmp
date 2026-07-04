@@ -10,11 +10,16 @@ kotlin {
             implementation(libs.kotlinx.serialization.core)
 
             implementation(projects.presentationFeatureAbout)
+            implementation(projects.presentationFeatureCommand)
+            implementation(projects.presentationFeaturePreset)
+            implementation(projects.presentationFeatureDevices)
+            implementation(projects.presentationFeatureDevice)
             implementation(projects.presentationFeatureHome)
             implementation(projects.presentationFeatureOnboarding)
             implementation(projects.presentationFeatureSettings)
             implementation(projects.presentationFeatureSplash)
             api(projects.presentationCoreNavigationApi)
+            implementation(projects.presentationCoreStyling)
             implementation(projects.presentationCoreUi)
         }
     }

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Onboarding -->
-    <string name="onboarding_title">Bienvenido</string>
-    <string name="onboarding_description">Completa una configuración rápida para personalizar tu experiencia.</string>
-    <string name="onboarding_get_started">Comenzar</string>
+    <string name="onboarding_title">PROMPT KNOB</string>
+    <string name="onboarding_description">POTENCIA TU FLUJO DE TRABAJO</string>
+    <string name="onboarding_get_started">INICIAR</string>
 
     <!-- Splash -->
-    <string name="splash_title">Cargando</string>
+    <string name="splash_title">PROMPT KNOB</string>
+    <string name="splash_description">POTENCIA TU FLUJO DE TRABAJO</string>
+    <string name="splash_get_started">INICIAR</string>
+    <string name="splash_connecting">CONECTANDO AL DISPOSITIVO…</string>
 
     <!-- Settings -->
-    <string name="settings_title">Ajustes</string>
+    <string name="settings_title">AJUSTES</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_language_en">English</string>
     <string name="settings_language_uk">Українська</string>
@@ -18,8 +21,254 @@
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_light">Claro</string>
     <string name="settings_theme_dark">Oscuro</string>
+    <!-- Settings - Permissions -->
+    <string name="settings_permissions">PERMISOS</string>
+    <string name="settings_bluetooth_access">ACCESO BLUETOOTH</string>
+    <string name="settings_bluetooth_subtitle">SINCRONIZACIÓN DE CONECTIVIDAD</string>
+    <string name="settings_bluetooth_request">SOLICITAR</string>
+    <string name="settings_bluetooth_granted">CONCEDIDO</string>
+    <string name="settings_accessibility_access">SERVICIO DE ACCESIBILIDAD</string>
+    <string name="settings_accessibility_subtitle">REQUERIDO PARA COMANDOS</string>
+    <string name="settings_accessibility_enable">ACTIVAR</string>
+    <string name="settings_accessibility_granted">ACTIVO</string>
+    <!-- Settings - Appearance -->
+    <string name="settings_appearance">APARIENCIA</string>
+    <string name="settings_language_selector">SELECTOR DE IDIOMA</string>
+    <string name="settings_theme_selector">SELECTOR DE TEMA</string>
+    <string name="settings_theme_monolith">MONOLITO</string>
+    <string name="settings_theme_monolith_subtitle">ALTO CONTRASTE OSCURO</string>
+    <string name="settings_theme_brutalist">BRUTALISTA</string>
+    <string name="settings_theme_brutalist_subtitle">ESCALA DE GRISES PURA</string>
+    <!-- Settings - Info -->
+    <string name="settings_core_version">VERSIÓN DEL NÚCLEO</string>
+    <string name="settings_hardware_status">ESTADO DEL HARDWARE</string>
+    <string name="settings_connected_via_ble">CONECTADO VÍA BLE</string>
+    <string name="settings_disconnected">DESCONECTADO</string>
+    <string name="settings_connecting">CONECTANDO</string>
+    <!-- Settings - System Registry -->
+    <string name="settings_system_registry">REGISTRO DEL SISTEMA</string>
+    <string name="settings_default_node_name">PROMPT_KNOB_NODE_01</string>
+    <!-- Settings - Footer -->
+    <string name="settings_system_info">INFORMACIÓN DEL SISTEMA</string>
+    <string name="settings_copyright">PROMPT KNOB © 2024</string>
 
     <!-- Error -->
     <string name="error_title">Vaya, algo salió mal</string>
     <string name="error_description">Ya estamos trabajando en una solución. Inténtalo de nuevo más tarde.</string>
+
+    <!-- Device / BLE -->
+    <string name="device_title">CONECTAR DISPOSITIVO</string>
+    <string name="device_status_active">BÚSQUEDA DEL SISTEMA ACTIVA</string>
+    <string name="device_status_connected">DISPOSITIVO CONECTADO</string>
+    <string name="device_status_standby">SISTEMA EN ESPERA</string>
+    <string name="device_status_scanning">ESTADO: BUSCANDO</string>
+    <string name="device_scanning">BUSCANDO…</string>
+    <string name="device_frequency_label">2GHZ / BTLE</string>
+    <string name="device_discovered_units">UNIDADES DESCUBIERTAS</string>
+    <string name="device_devices_found">%1$d DISPOSITIVOS ENCONTRADOS</string>
+    <string name="device_manual_pair">EMPAREJAMIENTO MANUAL</string>
+    <string name="device_ble_unavailable">BLUETOOTH NO DISPONIBLE EN ESTA PLATAFORMA</string>
+    <string name="device_permission_title">PERMISO REQUERIDO</string>
+    <string name="device_permission_body">SE REQUIERE PERMISO BLUETOOTH PARA CONECTAR CON EL DISPOSITIVO</string>
+    <string name="device_grant_permission">CONCEDER PERMISO</string>
+    <string name="device_disconnect">DESCONECTAR</string>
+    <string name="device_connected">CONECTADO</string>
+    <string name="device_connecting">CONECTANDO…</string>
+    <string name="device_disconnecting">DESCONECTANDO…</string>
+    <string name="device_disconnected">DESCONECTADO</string>
+    <string name="device_unknown_device">DISPOSITIVO DESCONOCIDO</string>
+    <string name="device_rssi_unit">dBm</string>
+    <string name="device_signal_label">SEÑAL</string>
+    <string name="device_reconnecting">RECONECTANDO…</string>
+    <string name="device_scan_timeout_title">DISPOSITIVO NO ENCONTRADO</string>
+    <string name="device_scan_timeout_hint_power">VERIFICAR LED DE ALIMENTACIÓN DEL DISPOSITIVO</string>
+    <string name="device_scan_timeout_hint_range">ACERCAR EL DISPOSITIVO</string>
+    <string name="device_scan_timeout_hint_restart">REINICIAR DISPOSITIVO E INTENTAR DE NUEVO</string>
+    <string name="device_scan_retry">ESCANEAR DE NUEVO</string>
+    <string name="device_bluetooth_disabled_title">BLUETOOTH DESACTIVADO</string>
+    <string name="device_bluetooth_disabled_body">ACTIVA BLUETOOTH PARA BUSCAR TU DISPOSITIVO</string>
+    <string name="device_bluetooth_open_settings">ABRIR CONFIGURACIÓN BLUETOOTH</string>
+
+    <!-- Device Detail / Dashboard -->
+    <string name="device_detail_current_hardware">HARDWARE ACTUAL</string>
+    <string name="device_detail_status">ESTADO</string>
+    <string name="device_detail_firmware">FIRMWARE</string>
+    <string name="device_detail_battery">BATERÍA</string>
+    <string name="device_detail_active_macros">MACROS ACTIVOS</string>
+    <string name="device_detail_layer_label">CAPA 01 / PRO</string>
+    <string name="device_detail_hardware_render">RENDER DE HARDWARE</string>
+    <string name="device_detail_chassis">CHASIS MONOLITO</string>
+    <string name="device_detail_profile_load">CARGA DE PERFIL</string>
+    <string name="device_detail_add_macro">AÑADIR MACRO</string>
+    <string name="device_detail_disconnect">DESCONECTAR DISPOSITIVO</string>
+    <string name="device_detail_forget">OLVIDAR DISPOSITIVO</string>
+    <string name="device_detail_force_sync">FORZAR SINCRONIZACIÓN</string>
+    <string name="device_detail_update_firmware">ACTUALIZAR FIRMWARE</string>
+    <string name="settings_erase_all_data">BORRAR TODOS LOS DATOS</string>
+    <string name="device_detail_no_macros">SIN MACROS CONFIGURADOS</string>
+    <!-- OTA -->
+    <string name="ota_waiting">ESPERANDO DISPOSITIVO…</string>
+    <string name="ota_receiving">SUBIENDO FIRMWARE</string>
+    <string name="ota_verifying">VERIFICANDO…</string>
+    <string name="ota_done">ACTUALIZACIÓN COMPLETA</string>
+    <string name="ota_done_subtitle">EL DISPOSITIVO SE ESTÁ REINICIANDO</string>
+    <string name="ota_abort">CANCELAR</string>
+    <string name="ota_err_crc">ARCHIVO CORRUPTO</string>
+    <string name="ota_err_flash">ERROR DE ESCRITURA FLASH</string>
+    <string name="ota_err_too_large">ARCHIVO DEMASIADO GRANDE</string>
+    <string name="ota_err_battery">BATERÍA DEMASIADO BAJA</string>
+    <string name="ota_err_bad_begin">SOLICITUD INVÁLIDA</string>
+    <string name="ota_err_disconnected">CONEXIÓN PERDIDA</string>
+    <string name="ota_err_subtitle">ACTUALIZACIÓN FALLIDA — INTENTAR DE NUEVO</string>
+
+    <!-- Command List -->
+    <string name="command_list_title">COMANDOS</string>
+    <string name="command_list_empty">AÚN SIN COMANDOS</string>
+    <string name="command_list_add_command">AÑADIR NUEVO COMANDO</string>
+    <string name="command_list_add_folder">AÑADIR NUEVA CARPETA</string>
+    <string name="command_list_delete_folder">ELIMINAR CARPETA</string>
+
+    <!-- Command Form -->
+    <string name="command_form_title_create">NUEVO COMANDO</string>
+    <string name="command_form_title_edit">EDITAR COMANDO</string>
+    <string name="command_form_creator_label">CREADOR</string>
+    <string name="command_form_cancel">CANCELAR</string>
+    <string name="command_form_button_preview">VISTA PREVIA DEL BOTÓN</string>
+    <string name="command_form_default_name">NUEVO_MACRO</string>
+    <string name="command_form_name_label">NOMBRE DEL MACRO</string>
+    <string name="command_form_name_hint">P.EJ. INICIO_STREAM</string>
+    <string name="command_form_command_label">CADENA DE COMANDO</string>
+    <string name="command_form_command_hint">CTRL + ALT + SHIFT + F12</string>
+    <string name="command_form_select_icon">SELECCIONAR ICONO</string>
+    <string name="command_form_icon_count">%1$d DISPONIBLES EN TOTAL</string>
+    <string name="command_form_utf8_tag">UTF-8 RAW</string>
+    <string name="command_form_test_run">PRUEBA</string>
+    <string name="command_form_save">GUARDAR MACRO</string>
+    <string name="command_form_delete">ELIMINAR</string>
+    <string name="command_form_name_required">EL NOMBRE ES OBLIGATORIO</string>
+    <string name="command_form_command_required">EL COMANDO ES OBLIGATORIO</string>
+    <string name="command_form_status_ready">SISTEMA LISTO PARA EJECUCIÓN</string>
+    <string name="command_form_type_label">TIPO DE EJECUCIÓN</string>
+    <string name="command_form_type_system">SISTEMA</string>
+    <string name="command_form_type_prompt">CONSULTA</string>
+    <string name="command_form_type_shell">SHELL</string>
+    <string name="command_form_type_shortcut">ATAJO</string>
+
+    <!-- Rotary -->
+    <string name="command_form_rotary_label">CODIFICADOR ROTATIVO</string>
+    <string name="command_form_rotary_hint">ACTIVAR PARA ASIGNAR COMANDOS SEPARADOS PARA ROTACIÓN CW Y CCW</string>
+    <string name="command_form_rotary_standard">ESTÁNDAR</string>
+    <string name="command_form_rotary_rotary">ROTATIVO</string>
+    <string name="command_form_agent_label">AGENTE</string>
+    <string name="command_form_agent_hint">AL SELECCIONAR ESTE ELEMENTO SE ABRE LA PANTALLA CLAUDE EN EL DISPOSITIVO</string>
+    <string name="command_list_rotary_badge">ROTATIVO</string>
+    <string name="command_list_agent_badge">AGENTE</string>
+    <string name="command_form_rotary_direction_cw">CW — SENTIDO HORARIO</string>
+    <string name="command_form_rotary_direction_ccw">CCW — SENTIDO ANTIHORARIO</string>
+    <string name="command_form_rotary_cw_label">COMANDO CW</string>
+    <string name="command_form_rotary_ccw_label">COMANDO CCW</string>
+    <string name="command_form_rotary_cw_required">EL COMANDO CW ES OBLIGATORIO</string>
+    <string name="command_form_rotary_ccw_required">EL COMANDO CCW ES OBLIGATORIO</string>
+    <string name="command_form_rotary_hint_leaf">CONFIGURAR COMANDOS EN SENTIDO HORARIO Y ANTIHORARIO PARA LA ROTACIÓN DEL BOTÓN</string>
+    <!-- Media -->
+    <string name="command_form_mode_media_screen">MEDIOS</string>
+    <string name="command_form_media_hint">ASIGNAR ACCIONES DE CONTROL DE MEDIOS PARA GESTOS DEL BOTÓN</string>
+    <string name="command_form_media_vol_up">SUBIR VOLUMEN (ROTAR CW)</string>
+    <string name="command_form_media_vol_down">BAJAR VOLUMEN (ROTAR CCW)</string>
+    <string name="command_form_media_play_pause">REPRODUCIR / PAUSAR (PULSAR CENTRO)</string>
+    <string name="command_form_media_prev">PISTA ANTERIOR (PULSAR IZQUIERDA)</string>
+    <string name="command_form_media_next">PISTA SIGUIENTE (PULSAR DERECHA)</string>
+
+    <!-- Command Delete Confirmation -->
+    <string name="command_delete_confirm_title">ELIMINAR ELEMENTO</string>
+    <string name="command_delete_confirm_message">¿ELIMINAR %1$s Y TODO SU CONTENIDO?</string>
+
+    <!-- Home -->
+    <string name="home_action_device">DISPOSITIVO</string>
+    <string name="home_action_styleguide">GUÍA DE ESTILO</string>
+    <string name="home_action_presets">PRESETS</string>
+
+    <!-- Command Form - hints -->
+    <string name="command_form_hint_system">VOLUMEN / BRILLO / BLOQUEAR_PANTALLA</string>
+    <string name="command_form_hint_prompt">CUÉNTAME UN CHISTE</string>
+    <string name="command_form_hint_shell">osascript -e \'display notification \"Hello\"\'</string>
+    <string name="command_form_hint_shortcut">MI_ATAJO</string>
+    <string name="command_form_browse_system">EXPLORAR COMANDOS DEL SISTEMA</string>
+
+    <!-- Settings - Notification -->
+    <string name="settings_notification_access">ACCESO A NOTIFICACIONES</string>
+    <string name="settings_notification_subtitle">REQUERIDO PARA ALERTAS DE COMANDOS</string>
+    <string name="settings_notification_enable">ACTIVAR</string>
+    <string name="settings_notification_granted">CONCEDIDO</string>
+    <!-- Settings - Erase -->
+    <string name="settings_erase_confirm_title">BORRAR TODOS LOS DATOS</string>
+    <string name="settings_erase_confirm_body">ESTO ELIMINARÁ TODOS LOS COMANDOS, PREFERENCIAS Y EMPAREJAMIENTOS. ESTA ACCIÓN NO SE PUEDE DESHACER.</string>
+    <string name="settings_erase_confirm_button">BORRAR</string>
+    <string name="settings_erase_cancel_button">CANCELAR</string>
+
+    <!-- About -->
+    <string name="about_title">ACERCA DE</string>
+    <string name="about_description">POTENCIA TU FLUJO DE TRABAJO</string>
+    <string name="about_version_label">VERSIÓN</string>
+    <string name="about_build_label">COMPILACIÓN</string>
+    <string name="about_back">ATRÁS</string>
+    <string name="settings_data_section">DATOS</string>
+    <string name="settings_data_export">EXPORTAR COMANDOS</string>
+    <string name="settings_data_import">IMPORTAR COMANDOS</string>
+    <string name="settings_mcp_section">MCP</string>
+    <string name="settings_mcp_server">SERVIDOR MCP</string>
+    <string name="settings_mcp_subtitle">INTEGRACIÓN CON CLAUDE CODE — PUERTO %1$s</string>
+    <string name="settings_mcp_guide_what_title">¿QUÉ ES MCP?</string>
+    <string name="settings_mcp_guide_what_body">El Model Context Protocol permite que Claude Code interactúe con tu botón físico: solicitar aprobaciones, presentar opciones y enviar notificaciones directamente al dispositivo.</string>
+    <string name="settings_mcp_guide_how_title">CÓMO CONECTAR</string>
+    <string name="settings_mcp_guide_how_body">1. Activa el servidor MCP con el interruptor de arriba.\n2. Añade el servidor a Claude Code ejecutando el comando de abajo en tu terminal.\n3. Reinicia Claude Code.</string>
+    <string name="settings_mcp_guide_command_label">COMANDO DE CONFIGURACIÓN</string>
+    <string name="settings_mcp_guide_copy">COPIAR</string>
+    <string name="settings_mcp_guide_copied">COPIADO</string>
+    <string name="settings_mcp_guide_tools_title">HERRAMIENTAS DISPONIBLES</string>
+    <string name="settings_mcp_guide_tool_approval">request_approval — puerta física de sí/no antes de operaciones de riesgo</string>
+    <string name="settings_mcp_guide_tool_choice">request_choice — gira para elegir de una lista de opciones</string>
+    <string name="settings_mcp_guide_tool_notify">notify — notificación de estado de un solo envío al dispositivo</string>
+    <string name="history_title">HISTORIAL DE COMANDOS</string>
+    <string name="history_empty">AÚN SIN COMANDOS EJECUTADOS</string>
+    <string name="history_clear">LIMPIAR</string>
+    <string name="history_item_success">ÉXITO</string>
+    <string name="history_item_failure">ERROR</string>
+
+    <!-- Preset -->
+    <string name="preset_list_title">Presets</string>
+    <string name="preset_list_back">Atrás</string>
+    <string name="preset_list_save">Guardar</string>
+    <string name="preset_list_gallery">Galería</string>
+    <string name="preset_list_my_presets">Mis presets</string>
+    <string name="preset_use">Usar</string>
+    <string name="preset_load">Cargar</string>
+    <string name="preset_export">Exportar</string>
+    <string name="preset_delete_title">Eliminar preset</string>
+    <string name="preset_delete_message">¿Eliminar \"%1$s\"?</string>
+    <string name="preset_delete_confirm">Eliminar</string>
+    <string name="preset_cancel">Cancelar</string>
+    <string name="preset_save_dialog_title">Guardar preset actual</string>
+    <string name="preset_save_name_label">Nombre</string>
+    <string name="preset_apply_title">APLICAR PRESET</string>
+    <string name="preset_apply_body">Tus comandos actuales serán reemplazados por \"%1$s\". Esta acción no se puede deshacer.</string>
+    <string name="preset_apply_confirm">APLICAR</string>
+
+    <!-- Snackbar -->
+    <string name="snackbar_error">Error</string>
+    <string name="settings_import_success">%1$d COMANDOS IMPORTADOS</string>
+    <string name="settings_claude_section">MODO CLAUDE</string>
+    <string name="settings_claude_server">HOOKS CLAUDE</string>
+    <string name="settings_claude_subtitle">PANTALLA DE ESTADO — PUERTO %1$s</string>
+    <string name="settings_claude_guide_what_title">¿QUÉ ES EL MODO CLAUDE?</string>
+    <string name="settings_claude_guide_what_body">El Modo Claude muestra automáticamente el estado actual de la sesión de Claude Code en tu dispositivo — trabajando, esperando, inactivo o error — a través de hooks de Claude Code.</string>
+    <string name="settings_claude_guide_how_title">CÓMO CONECTAR</string>
+    <string name="settings_claude_guide_how_body">1. Activa el Modo Claude con el interruptor de arriba.\n2. Añade la configuración de hooks de abajo a tu ~/.claude/settings.json.\n3. Claude Code ahora actualizará tu dispositivo automáticamente.</string>
+    <string name="settings_claude_guide_config_label">CONFIGURACIÓN DE HOOKS</string>
+    <string name="settings_claude_guide_copy">COPIAR</string>
+    <string name="settings_claude_guide_copied">COPIADO</string>
+    <string name="settings_claude_guide_states_title">ESTADOS DEL DISPOSITIVO</string>
+    <string name="settings_claude_guide_state_working">working — Claude Code está ejecutando una herramienta</string>
+    <string name="settings_claude_guide_state_waiting">waiting — Claude Code necesita tu entrada</string>
+    <string name="settings_claude_guide_state_idle">idle — sesión finalizada o sin sesión activa</string>
 </resources>

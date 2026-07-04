@@ -8,6 +8,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
+/**
+ * [ChevronLeft] icon as a Compose [ImageVector].
+ */
 public val ChevronLeft: ImageVector
     get() {
         if (_ChevronLeft != null) {
