@@ -1,6 +1,6 @@
 ![img_banner.png](docs/img/img_banner.png)
 
-# PromptKnob
+# prompt-knob-kmp
 
 The companion app for the PromptKnob — a BLE rotary controller that maps a physical knob to media, meetings, and system commands on **macOS** and **Android**.
 
