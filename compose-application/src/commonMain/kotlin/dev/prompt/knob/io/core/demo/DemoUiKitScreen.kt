@@ -1,4 +1,4 @@
-package dev.prompt.knob.io.demo
+package dev.prompt.knob.io.core.demo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -455,5 +455,3 @@ private fun SubSectionTitle(text: String) {
         color = Theme.color.inkSubtle,
     )
 }
-
-// integrate use case

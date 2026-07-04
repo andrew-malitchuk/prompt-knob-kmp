@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PromptKnob</string>
+    <string name="tile_label">PromptKnob</string>
+    <string name="tile_connected">CONNECTED</string>
+    <string name="tile_connecting">CONNECTING</string>
+    <string name="tile_disconnected">DISCONNECTED</string>
 </resources>

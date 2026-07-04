@@ -1,4 +1,4 @@
-package dev.prompt.knob.io.demo
+package dev.prompt.knob.io.core.demo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -272,5 +272,3 @@ private fun SpacingRow(name: String, size: Dp) {
         )
     }
 }
-
-// fix memory leak

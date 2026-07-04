@@ -1,7 +1,7 @@
-package dev.prompt.knob.io
+package dev.prompt.knob.io.source.viewcontroller
 
 import androidx.compose.ui.window.ComposeUIViewController
-
+import dev.prompt.knob.io.source.app.App
 import platform.UIKit.UIViewController
 
 /**
@@ -15,4 +15,3 @@ import platform.UIKit.UIViewController
  * @see App
  */
 public fun MainViewController(): UIViewController = ComposeUIViewController { App() }
-// reorganize package

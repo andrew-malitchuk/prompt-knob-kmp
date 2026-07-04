@@ -81,9 +81,10 @@ kotlin {
 
     dependencies {
         implementation(projects.composeApplication)
+        implementation(projects.dataBleApi)
+        implementation(projects.domainCore)
+        implementation(projects.domainUsecaseApi)
         implementation(libs.androidx.activity.compose)
         implementation(libs.koin.android)
     }
 }
-
-// align versions

@@ -1,4 +1,4 @@
-package dev.prompt.knob.io.demo
+package dev.prompt.knob.io.core.demo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -34,7 +34,7 @@ private enum class DemoTab(val label: String) {
 /**
  * Hosts the demo/style-guide screens behind a tab bar.
  *
- * Used only when `DEMO_MODE` is enabled in [App]. Manages its own
+ * Used only when `DEMO_MODE` is enabled in [dev.prompt.knob.io.source.app.App]. Manages its own
  * tab selection state internally for simplicity.
  *
  * @see DemoStyleGuideScreen
@@ -43,6 +43,9 @@ private enum class DemoTab(val label: String) {
  */
 @Composable
 internal fun DemoHost() {
+    // NOTE: Tab state is owned internally rather than hoisted — DemoHost has no
+    // external callers that need to observe or control tab selection. Hoisting
+    // would add complexity with no benefit for a dev-only screen.
     var selectedTab by remember { mutableStateOf(DemoTab.StyleGuide) }
 
     Column(modifier = Modifier.fillMaxSize().background(Theme.color.canvas)) {
@@ -78,5 +81,3 @@ internal fun DemoHost() {
         }
     }
 }
-
-// add extension helper

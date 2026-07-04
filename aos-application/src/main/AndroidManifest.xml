@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- BLE (Android 12+, API 31+): scan + connect. neverForLocation because the scanner
+         filters by service UUID / device name and never derives physical location. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- BLE (API 27–30): legacy Bluetooth + location required for LE scan. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+    <!-- Foreground service that keeps the BLE link alive while backgrounded. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+
+    <!-- Android 13+: required to display the foreground-service notification. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
-        android:name="dev.prompt.knob.io.PromptKnobApplication"
+        android:name="dev.prompt.knob.io.core.PromptKnobApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,13 +36,83 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
             android:exported="true"
-            android:name="dev.prompt.knob.io.MainActivity">
+            android:name="dev.prompt.knob.io.source.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--
+            Accessibility service that drives the Google Assistant UI and issues global
+            system actions. Enabled once by the user in Settings > Accessibility.
+            The BIND_ACCESSIBILITY_SERVICE permission and the QS_TILE / DEVICE_ADMIN
+            declarations below MUST stay in this manifest — without them the components
+            never appear in the system settings lists, even though the classes exist.
+            Class lives in :data-executor-impl (present in the APK transitively).
+        -->
+        <service
+            android:name="data.executor.impl.source.assistant.AssistantRobotService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/assistant_accessibility_config" />
+        </service>
+
+        <!-- Device Admin receiver — enables the LOCK_SCREEN command via lockNow(). -->
+        <receiver
+            android:name="data.executor.impl.source.system.PromptKnobDeviceAdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_receiver" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Quick Settings tile that toggles the BLE connection to the last device. -->
+        <service
+            android:name="dev.prompt.knob.io.source.tile.QuickCommandTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_knob"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!--
+            Foreground service that maintains the BLE connection to the knob while the app
+            is backgrounded and auto-reconnects on drops. Started explicitly via
+            startForegroundService(); not exported. Class lives in :data-ble-impl (packaged
+            transitively). connectedDevice type pairs with FOREGROUND_SERVICE_CONNECTED_DEVICE.
+        -->
+        <service
+            android:name="data.ble.impl.source.service.BleConnectionService"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
+
+        <!--
+            Auto-confirms the fixed pairing passkey for PromptKnob devices so the system PIN
+            dialog never appears. Must be exported to receive the system PAIRING_REQUEST
+            broadcast, and declared here so it fires even when the app process is not running.
+        -->
+        <receiver
+            android:name="data.ble.impl.source.receiver.BlePairingReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

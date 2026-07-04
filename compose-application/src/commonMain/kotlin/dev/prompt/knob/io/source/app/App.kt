@@ -1,9 +1,9 @@
-package dev.prompt.knob.io
+package dev.prompt.knob.io.source.app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import dev.prompt.knob.io.demo.DemoHost
+import dev.prompt.knob.io.core.demo.DemoHost
 import domain.core.source.model.ThemeModel
 import domain.usecase.api.source.usecase.configuration.ObserveApplicationLanguageUseCase
 import domain.usecase.api.source.usecase.configuration.ObserveThemeUseCase
@@ -35,6 +35,8 @@ public fun App() {
     val observeLanguage = koinInject<ObserveApplicationLanguageUseCase>()
     val languageCode by observeLanguage()
         .map { it.getOrNull() ?: "en" }
+        // NOTE: "en" is used as both the initial and the fallback for a failed Result —
+        // the preference is unset on first launch, so English is the safe default.
         .collectAsState(initial = "en")
 
     val observeTheme = koinInject<ObserveThemeUseCase>()
@@ -44,6 +46,8 @@ public fun App() {
                 ThemeModel.Light -> ThemeMode.Light
                 ThemeModel.Dark -> ThemeMode.Dark
                 ThemeModel.MaterialU -> ThemeMode.System
+                // NOTE: null means the preference has not been written yet (first launch).
+                // Light is the safe default — avoid a flash of the wrong theme on startup.
                 null -> ThemeMode.Light
             }
         }
@@ -59,5 +63,3 @@ public fun App() {
         }
     }
 }
-
-// reduce allocations

@@ -1,4 +1,4 @@
-package dev.prompt.knob.io.di
+package dev.prompt.knob.io.source.di
 
 /**
  * Convenience wrapper for [initKoin] used by iOS entry point.
@@ -11,5 +11,3 @@ package dev.prompt.knob.io.di
 public fun doInitKoin() {
     initKoin()
 }
-
-// add feature module
