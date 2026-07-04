@@ -39,6 +39,11 @@ DerivedData/
 *.xccheckout
 *.xcscmblueprint
 
+# ── MkDocs ────────────────────────────────────────────────────────────────────
+# NOTE: site/ (the built docs) is intentionally tracked so it can be published to
+# GitHub Pages. Only the material build cache is ignored.
+.cache/
+
 # ── Misc ──────────────────────────────────────────────────────────────────────
 *.log
 *.tmp
