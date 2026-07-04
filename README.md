@@ -89,18 +89,33 @@ Android presets use Google Assistant voice commands via `AssistantPromptExecutor
 
 ## Hardware & Firmware
 
-PromptKnob is built around an **ESP32** microcontroller. The companion app (this repo) communicates with the device over BLE using the YAMK wire protocol.
+PromptKnob is built around an **ESP32-S3** microcontroller. The companion app (this repo) communicates with the device over BLE using the YAMK wire protocol. The firmware that runs on the device lives in a **separate repository**: [github.com/andrew-malitchuk/prompt-knob-firmware](https://github.com/andrew-malitchuk/prompt-knob-firmware).
 
-### Device specification
+### Board
+
+The reference device is the **Guition JC3636K518C** (K5 Knob Series) — an off-the-shelf ESP32-S3 knob module with a round touch display and a rotary encoder ring, which is exactly the form factor PromptKnob needs.
 
 | Component | Details |
 |-----------|---------|
-| MCU | ESP32 (Xtensa LX6 dual-core, 240 MHz) |
-| Wireless | Bluetooth 4.2 / BLE |
-| Storage | 4 MB flash; NVS partition for command tree |
-| Input | Rotary encoder — CW/CCW rotation, tap, swipe |
-| Output | Display, RGB LEDs, haptic motor |
-| USB | Micro-USB / USB-C via onboard USB-to-UART bridge |
+| MCU | ESP32-S3R8 (Xtensa LX7 dual-core, 240 MHz) |
+| Wireless | Wi-Fi + Bluetooth 5.0 (BLE) |
+| Memory | 512 KB SRAM · **8 MB PSRAM** · 384 KB ROM |
+| Storage | **16 MB flash**; NVS partition for the command tree |
+| Display | 1.8″ round IPS LCD, 360 × 360, QSPI |
+| Input | Rotary encoder (CW/CCW) + capacitive touch — mapped to rotation, tap, swipe |
+| Output | Display, RGB LED ring, notification feedback |
+| USB | USB-C via onboard USB-to-UART bridge (flashing + serial monitor) |
+
+### Where to get it
+
+| Source | Link |
+|--------|------|
+| Manufacturer | [guition.com](https://www.guition.com/) |
+| Quick-start guide | [1.8″ ESP32-S3 Knob Module — GUITION](https://www.guition.com/knowledge/quick-start-guide-1-8-inch-esp32s3-knob-module) |
+| Surenoo (K5 Knob Series) | [surenoo.com — JC3636K518C listing](https://www.surenoo.com/products/23666971) |
+| AliExpress | [search "Guition JC3636K518C K5 knob"](https://www.aliexpress.com/w/wholesale-Guition-JC3636K518C.html) |
+
+> ⚠️ **Check the exact model before ordering.** PromptKnob targets the **JC3636K518C** — the variant with **8 MB PSRAM + 16 MB flash**. Neighbouring boards in the K5 series look identical but differ (e.g. the **JC3636K718C** uses a different touch/display controller and memory layout). Ordering the wrong SKU will give you a board the firmware does not target.
 
 ### Flashing with PlatformIO
 
