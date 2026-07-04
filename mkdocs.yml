@@ -1,0 +1,132 @@
+site_name: PromptKnob
+site_description: >-
+  Kotlin Multiplatform companion app for the PromptKnob BLE rotary knob —
+  macOS & Android, with Claude Code integration.
+site_author: Andrew Malitchuk
+repo_url: https://github.com/andrew-malitchuk/prompt-knob-kmp
+repo_name: prompt-knob-kmp
+docs_dir: docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: img/app_icon.png
+  favicon: img/app_icon.png
+  palette:
+    - scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Prerequisites: getting-started/prerequisites.md
+      - Setup: getting-started/setup.md
+      - Build Commands: getting-started/build-commands.md
+      - Platforms: getting-started/platforms.md
+  - How-To:
+      - Run on Android: how-to/run-android.md
+      - Run on iOS: how-to/run-ios.md
+      - Change Theme: how-to/change-theme.md
+      - Add Localisation: how-to/add-localisation.md
+      - Use as Template: how-to/use-as-template.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Module Structure: architecture/module-structure.md
+      - Convention Plugins: architecture/convention-plugins.md
+      - Patterns: architecture/patterns.md
+  - Development:
+      - Add a Feature: development/add-feature.md
+      - Add a Module: development/add-module.md
+      - BLE / YAMK Protocol: development/ble-protocol.md
+      - Firmware BLE (app side): development/firmware-ble-impl.md
+  - Modules:
+      - Application:
+          - compose-application: modules/application/compose-application.md
+          - aos-application: modules/application/aos-application.md
+      - Presentation Core:
+          - UI: modules/presentation/core/ui.md
+          - Styling: modules/presentation/core/styling.md
+          - Localisation: modules/presentation/core/localisation.md
+          - Navigation: modules/presentation/core/navigation.md
+      - Presentation Features:
+          - Splash: modules/presentation/features/splash.md
+          - Onboarding: modules/presentation/features/onboarding.md
+          - Home: modules/presentation/features/home.md
+          - Devices: modules/presentation/features/devices.md
+          - Device: modules/presentation/features/device.md
+          - Command: modules/presentation/features/command.md
+          - Preset: modules/presentation/features/preset.md
+          - Settings: modules/presentation/features/settings.md
+          - About: modules/presentation/features/about.md
+      - Domain:
+          - Core: modules/domain/core.md
+          - Repository API: modules/domain/repository-api.md
+          - Use Cases: modules/domain/usecase.md
+      - Data:
+          - Repository: modules/data/repository.md
+          - BLE: modules/data/ble.md
+          - Database: modules/data/database.md
+          - Preference: modules/data/preference.md
+          - Executor: modules/data/executor.md
+          - MCP: modules/data/mcp.md
+          - Runtime: modules/data/runtime.md
+      - common-core: modules/common-core.md
+  - Firmware:
+      - Overview: firmware/overview.md
+      - Hardware: firmware/hardware.md
+      - Getting Started: firmware/getting-started.md
+      - Development: firmware/development.md
+      - Flashing: firmware/flashing.md
+      - Storage: firmware/storage.md
+  - User Guide:
+      - Android: user-guide/getting-started-android.md
+      - macOS: user-guide/getting-started-macos.md
+      - Claude Code / MCP Setup: user-guide/mcp-setup.md
+  - Roadmap: roadmap.md

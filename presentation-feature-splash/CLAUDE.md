@@ -6,8 +6,8 @@ Initial app launch screen with loading/shimmer states and navigation to the next
 
 ## Convention Plugins
 
-- `dev.yamh.io.convention.feature`
-- `dev.yamh.io.convention.di`
+- `dev.prompt.knob.io.convention.feature`
+- `dev.prompt.knob.io.convention.di`
 
 ## Key Files
 

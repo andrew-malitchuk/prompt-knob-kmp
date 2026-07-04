@@ -6,8 +6,8 @@ User onboarding flow for initial app setup and introduction.
 
 ## Convention Plugins
 
-- `dev.yamh.io.convention.feature`
-- `dev.yamh.io.convention.di`
+- `dev.prompt.knob.io.convention.feature`
+- `dev.prompt.knob.io.convention.di`
 
 ## Key Files
 

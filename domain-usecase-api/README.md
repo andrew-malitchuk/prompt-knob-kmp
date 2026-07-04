@@ -1,51 +1,53 @@
 # domain-usecase-api
 
-> Use case interfaces that define the primary domain API consumed by the presentation layer.
+> Single-responsibility use case interfaces — the domain API consumed by the presentation layer.
 
 ## Responsibility
 
-Provides single-responsibility use case contracts. Each use case wraps one repository operation and serves as the sole entry point from presentation into the domain layer.
+Provides one interface per domain operation. Each use case is the sole entry point from presentation into the domain layer and typically wraps a single repository call. Grouped by area, matching the source package layout under `domain.usecase.api.source.usecase.*`.
 
 ## Dependencies
 
 | Depends on | Purpose |
 |---|---|
-| `domain-core` | Domain models and Failure types |
+| `domain-core` | Domain models, `Optional`, and `Failure` types |
+| `kotlinx-serialization-json` | For serializable command/preset export payloads |
 
 ## Public API
 
-### Configuration Use Cases
+~50 use case interfaces across seven areas, plus a small platform-command helper.
 
-| Interface | Description |
+| Area (package) | Count | Examples |
+|---|---|---|
+| `usecase/ble` | 19 | `ScanForDevicesUseCase`, `ConnectToDeviceUseCase`, `DisconnectDeviceUseCase`, `ForgetDeviceUseCase`, `SyncCommandsUseCase`, `ObserveConnectionStateUseCase`, `ObserveBatteryLevelUseCase`, `ObserveFirmwareVersionUseCase`, `StartOtaUseCase`, `CheckBlePermissionsUseCase`, `RequestBlePermissionsUseCase`, `SendClaudeStateUseCase`, `SendNotifyUseCase`, `SendShowApprovalUseCase`, `SendShowChoiceUseCase`, `AwaitCommandSelectedUseCase`, `ObserveSelectedCommandUseCase`, `GetLastDeviceUseCase`, `ConsumeSkipAutoReconnectUseCase` |
+| `usecase/command` | 6 | `ObserveCommandsUseCase`, `GetCommandByIdUseCase`, `SaveCommandUseCase`, `DeleteCommandUseCase`, `ExportCommandsUseCase`, `ImportCommandsUseCase` |
+| `usecase/preset` | 7 | `ObservePresetsUseCase`, `SavePresetUseCase`, `DeletePresetUseCase`, `LoadPresetUseCase`, `GetGalleryPresetsUseCase`, `ExportPresetUseCase`, `ImportPresetUseCase` |
+| `usecase/configuration` | 12 | `GetThemeUseCase`/`SetThemeUseCase`/`ObserveThemeUseCase`, `GetApplicationLanguageUseCase`/`SetApplicationLanguageUseCase`/`ObserveApplicationLanguageUseCase`, `GetOnboardingStatusUseCase`/`SetOnboardingStatusUseCase`, `GetMcpEnabledUseCase`/`SetMcpEnabledUseCase`, `GetClaudeHookEnabledUseCase`/`SetClaudeHookEnabledUseCase` |
+| `usecase/mcp` | 4 | `StartMcpServerUseCase`, `StopMcpServerUseCase`, `StartClaudeHookServerUseCase`, `StopClaudeHookServerUseCase` |
+| `usecase/history` | 2 | `ObserveCommandHistoryUseCase`, `ClearCommandHistoryUseCase` |
+| `usecase/executor` | 1 | `ExecuteCommandUseCase` |
+
+### Platform command helper
+
+| Symbol | Description |
 |---|---|
-| `GetThemeUseCase` | Retrieve current theme |
-| `SetThemeUseCase` | Update theme preference |
-| `ObserveThemeUseCase` | Observe theme changes as Flow |
-| `GetOnboardingStatusUseCase` | Get onboarding completion status |
-| `SetOnboardingStatusUseCase` | Mark onboarding as complete |
-| `GetApplicationLanguageUseCase` | Get current language |
-| `SetApplicationLanguageUseCase` | Set application language |
-| `ObserveApplicationLanguageUseCase` | Observe language changes as Flow |
+| `availableCommandTypes(): List<CommandTypeModel>` | `expect` function; each target returns the `CommandTypeModel`s it supports (e.g. `SHELL` on macOS, `PROMPT` on Android, `SHORTCUT` on iOS) |
 
 ### Utilities
 
-| Class | Description |
+| Symbol | Description |
 |---|---|
-| `Optional<T>` | Monad for representing optional values |
+| `Optional` | `typealias` re-exporting `domain.core.source.monad.Optional` |
 
 ## Usage
 
 ```kotlin
-// In a ViewModel — use cases are injected via Koin
 class SettingsViewModel(
     private val getThemeUseCase: GetThemeUseCase,
     private val setThemeUseCase: SetThemeUseCase,
-) : ViewModel(), ContainerHost<State, SideEffect> {
-
-    fun loadTheme() = intent {
-        getThemeUseCase()
-            .onSuccess { theme -> reduce { state.copy(theme = theme) } }
-            .onFailure { postSideEffect(SideEffect.ShowError(it)) }
+) : ViewModel() {
+    fun loadTheme() = viewModelScope.launch {
+        getThemeUseCase().onSuccess { /* reduce state */ }
     }
 }
 ```

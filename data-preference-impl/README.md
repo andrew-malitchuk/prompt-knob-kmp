@@ -21,11 +21,14 @@ Implements all preference source interfaces from `data-preference-api` with plat
 
 ### Internal Implementations
 
-| Class | Implements | Storage Key |
-|---|---|---|
-| `LanguagePreferenceSourceImpl` | `LanguagePreferenceSource` | `pref_language` |
-| `ThemePreferenceSourceImpl` | `ThemePreferenceSource` | `pref_theme` |
-| `OnboardingPreferenceSourceImpl` | `OnboardingPreferenceSource` | `pref_onboarding_completed` |
+| Class | Implements |
+|---|---|
+| `LanguagePreferenceSourceImpl` | `LanguagePreferenceSource` |
+| `ThemePreferenceSourceImpl` | `ThemePreferenceSource` |
+| `OnboardingPreferenceSourceImpl` | `OnboardingPreferenceSource` |
+| `LastDevicePreferenceSourceImpl` | `LastDevicePreferenceSource` |
+| `McpPreferenceSourceImpl` | `McpPreferenceSource` |
+| `ClaudeHookPreferenceSourceImpl` | `ClaudeHookPreferenceSource` |
 
 ### Platform-Specific Settings Provider
 
@@ -33,7 +36,10 @@ Implements all preference source interfaces from `data-preference-api` with plat
 |---|---|
 | Android | AndroidX Preferences DataStore via custom `DataStoreSettings` bridge |
 | iOS | `NSUserDefaults` via `NSUserDefaultsSettings` |
+| macOS | `NSUserDefaults` via `NSUserDefaultsSettings` |
 | Desktop | `java.util.prefs.Preferences` via `PreferencesSettings` |
+
+The platform `Settings` is provided through the `provideSettings()` expect/actual hook (`SettingsProvider.<platform>.kt`) invoked inside `dataPreferenceImplModule`.
 
 ## Usage
 

@@ -1,64 +1,46 @@
 # presentation-core-navigation-api
 
-> Navigation abstractions — sealed destinations, navigator interface, and composition locals.
-
-## Responsibility
-
-Defines the app's navigation graph as a sealed `Destination` hierarchy and provides the `AppNavigator` interface for type-safe navigation. Feature modules depend on this module to declare navigation targets without coupling to the navigation implementation.
-
-## Dependencies
-
-| Depends on | Purpose |
-|---|---|
-| Navigation3-ui | Navigation framework types |
-| kotlinx-serialization-core | Serializable destinations for saved state |
+Public navigation contract for PromptKnob: the sealed `Destination` hierarchy, the `AppNavigator` interface, and the composition locals used to reach them from any feature module. Implementation lives in `presentation-core-navigation-impl`.
 
 ## Public API
 
-### Navigator
+| Type | Kind | Purpose |
+|------|------|---------|
+| `Destination` | sealed class : `NavKey` | All navigable screens (see below) |
+| `AppNavigator` | interface | `navigate(destination, options)`, `popBackStack()`, `backAction()` |
+| `AppNavigator.NavOptions` | enum | `Default`, `SingleTop`, `ClearTask` |
+| `LocalAppNavigator` | CompositionLocal | Provides the active `AppNavigator` |
+| `LocalBackAction` | CompositionLocal | Provides the default back callback |
 
-| Interface | Description |
-|---|---|
-| `AppNavigator` | Navigation contract: `navigate(destination, options)`, `popBackStack()`, `backAction()` |
-| `AppNavigator.NavOptions` | Enum: `Default`, `SingleTop`, `ClearTask` |
+## Destinations
 
-### Destinations
+`Destination` has 12 members:
 
-| Destination | Description |
-|---|---|
-| `Destination.Splash` | Launch splash screen |
-| `Destination.Onboarding` | First-time onboarding flow |
-| `Destination.Home` | Main home screen |
-| `Destination.Settings` | App settings |
-| `Destination.About` | App information |
+| Destination | Kind | Notes |
+|-------------|------|-------|
+| `Splash` | data object | Launch splash with animation |
+| `Onboarding` | data object | First-time onboarding flow |
+| `Home` | data object | Main home screen |
+| `Settings` | data object | App settings (theme, language) |
+| `About` | data object | App information |
+| `Styleguide` | data object | Design-system showcase (dev utility) |
+| `Devices` | data object | BLE device scan/connect list |
+| `Device` | data object | Connected-knob detail dashboard |
+| `LanguagePicker` | data object | Full-screen locale picker |
+| `Presets` | data object | Preset gallery and management |
+| `CommandList(parentId, isParentRotary)` | data class | Command/folder list for a folder level; `parentId = 0` is root |
+| `CommandForm(commandId, isFolder, parentId, sessionId, sortOrder, isParentRotary)` | data class | Create/edit a command or folder; `commandId = -1` means create |
 
-### Composition Locals
-
-| Local | Description |
-|---|---|
-| `LocalAppNavigator` | Provides `AppNavigator?` to the composition tree |
-| `LocalBackAction` | Provides back-navigation callback `() -> Unit` |
+Every member is `@Serializable` for Navigation 3 saved-state persistence. New destinations must also be registered in `navSavedStateConfiguration` and `NavigationHost` (impl module).
 
 ## Usage
 
 ```kotlin
-// Navigate from a feature screen
 val navigator = LocalAppNavigator.current
 navigator?.navigate(Destination.Settings)
-
-// Navigate with options
-navigator?.navigate(
-    destination = Destination.Home,
-    options = AppNavigator.NavOptions.ClearTask,
-)
-
-// Handle back action
-val backAction = LocalBackAction.current
-backAction()
+navigator?.navigate(Destination.CommandForm(commandId = -1, parentId = 0))
 ```
 
-## Testing
+## Dependencies
 
-```bash
-./gradlew :presentation-core-navigation-api:test
-```
+AndroidX Navigation 3 runtime (`NavKey`), kotlinx-serialization-core. No internal module dependencies.

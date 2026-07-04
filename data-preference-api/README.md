@@ -27,6 +27,9 @@ Declares the contracts for reading, writing, and observing app preferences. Each
 | `LanguagePreferenceSource` | `LanguagePreference` | App language locale code |
 | `ThemePreferenceSource` | `ThemePreference` | App theme (light, dark, system) |
 | `OnboardingPreferenceSource` | `OnboardingPreference` | Onboarding completion flag |
+| `LastDevicePreferenceSource` | `LastDevicePreference` | Last connected BLE device identity |
+| `McpPreferenceSource` | `McpPreference` | MCP server enabled state |
+| `ClaudeHookPreferenceSource` | `ClaudeHookPreference` | Claude hook server enabled state |
 
 ### Models
 
@@ -35,6 +38,9 @@ Declares the contracts for reading, writing, and observing app preferences. Each
 | `LanguagePreference` | `languageCode: String` (default: `"en"`) | ISO 639-1 language code |
 | `ThemePreference` | `theme: String` (default: `"system"`) | Theme identifier |
 | `OnboardingPreference` | `isCompleted: Boolean` (default: `false`) | Onboarding status |
+| `LastDevicePreference` | `address: String?`, `name: String?` (default: `null`) | Address/name of last connected BLE device (MAC on Android, CoreBluetooth UUID on iOS/macOS) |
+| `McpPreference` | `isEnabled: Boolean` (default: `true`) | Whether the MCP server should run |
+| `ClaudeHookPreference` | `isEnabled: Boolean` (default: `false`) | Whether the Claude hook server should run |
 
 ## Usage
 

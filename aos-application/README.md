@@ -1,51 +1,27 @@
 # aos-application
 
-> Android application module — Activity and Application class.
-
-## Responsibility
-
-Android-specific entry point. Hosts `MainActivity` (single-activity architecture with edge-to-edge rendering) and bootstraps Koin DI with Android context via `PromptKnobApplication`.
-
-## Dependencies
-
-| Depends on | Purpose |
-|---|---|
-| `compose-application` | Shared `App()` composable and `initKoin()` |
+Android application entry point for PromptKnob. Hosts the single Activity, bootstraps Koin with the Android `Context`, and provides Android-only integration surfaces (Quick Settings tile, plus accessibility/device-admin XML configs).
 
 ## Public API
 
-| Class | Description |
-|---|---|
-| `MainActivity` | Single-activity entry point with edge-to-edge setup |
-| `PromptKnobApplication` | Application subclass — Koin bootstrap |
+| Class | Package | Description |
+|-------|---------|-------------|
+| `PromptKnobApplication` | `dev.prompt.knob.io.core` | `Application` subclass; calls `initKoin { androidLogger(); androidContext(this) }` on startup |
+| `MainActivity` | `dev.prompt.knob.io.source.activity` | Single-activity host; enables edge-to-edge then `setContent { App() }` |
+| `QuickCommandTileService` | `dev.prompt.knob.io.source.tile` | Quick Settings `TileService` that toggles the BLE connection to the last known device, reflecting `ConnectionStateModel` as active/inactive |
 
-### MainActivity
+## Android integration assets
 
-- Enables edge-to-edge rendering
-- Delegates UI to shared `App()` composable
+- `res/xml/assistant_accessibility_config.xml` — accessibility service config (scoped to Google Quick Search Box).
+- `res/xml/device_admin_receiver.xml` — device-admin policy (`force-lock`).
+- `res/drawable/ic_tile_knob.xml` — tile icon; `tile_*` strings in `strings.xml`.
 
-### PromptKnobApplication
+Manifest (`dev.prompt.knob.io.core.PromptKnobApplication` + `dev.prompt.knob.io.source.activity.MainActivity` as the launcher activity) is the current wiring; the tile/accessibility/device-admin assets are present in source for their respective services.
 
-- Calls `initKoin { androidContext(this) }` on startup
+## Dependencies
 
-## Usage
+`compose-application` (shared `App()` + `initKoin`), `data-ble-api`, `domain-core`, `domain-usecase-api`, `androidx.activity.compose`, `koin.android`.
 
-```xml
-<!-- AndroidManifest.xml -->
-<application android:name=".PromptKnobApplication">
-    <activity android:name=".MainActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-</application>
-```
+## Platform notes
 
-## Testing
-
-```bash
-./gradlew :aos-application:test
-```
-
-<!-- update CLAUDE.md (2026-05-05) -->
+Android only. Applies the `androidApplication`, `composeMultiplatform`, and `composeCompiler` Gradle plugins directly (not a `convention` plugin). Signing config is loaded from `configure/secrets/signing.properties` when present.

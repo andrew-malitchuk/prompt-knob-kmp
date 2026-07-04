@@ -1,51 +1,59 @@
 # data-repository-impl
 
-> Repository implementations bridging domain interfaces to preference data sources.
+> Repository implementations bridging domain repository interfaces to the data-layer sources (preferences, BLE, executor, runtime, database).
 
 ## Responsibility
 
-Implements `ConfigureRepository` from the domain layer by orchestrating calls to preference data sources. Uses the `ModelResourceMapper` pattern for bidirectional conversion between domain models and data-layer resources.
+Implements every repository interface declared in `domain-repository-api` by orchestrating calls to the data-layer API modules and converting between domain models and data-layer resources via internal mappers. All implementations and mappers are `internal`; only the Koin module is public.
 
 ## Dependencies
 
 | Depends on | Purpose |
 |---|---|
 | `domain-repository-api` | Repository interfaces to implement |
-| `domain-core` | Domain models and Failure types |
-| `data-preference-api` | Preference data source interfaces |
+| `domain-core` | Domain models (`BleDeviceModel`, `CommandNodeModel`, `PresetModel`, `ThemeModel`, …) |
+| `data-preference-api` | Preference sources |
+| `data-database-api` | Persistence sources |
+| `data-ble-api` | BLE scan/connect sources |
+| `data-executor-api` | Command executor sources |
+| `data-runtime-api` | Claude hook runtime source |
 | `data-core` | `Resource` marker interface |
-| `common-core` | Shared utilities |
+| `common-core` | `Mapper` |
+| kermit, kotlinx-datetime | Logging, timestamps |
 
 ## Public API
 
 | Symbol | Description |
 |---|---|
-| `ModelResourceMapper<MODEL, RESOURCE>` | Base interface for bidirectional mappers (`toModel` / `toResource`) |
-| `dataRepositoryImplModule` | Koin module registering repository singletons |
+| `dataRepositoryImplModule` | Koin module binding all repository implementations as singletons |
 
-### Internal Implementations
+## Repository Implementations (internal)
 
-| Class | Implements | Data Sources Used |
-|---|---|---|
-| `ConfigureRepositoryImpl` | `ConfigureRepository` | `ThemePreferenceSource`, `OnboardingPreferenceSource`, `LanguagePreferenceSource` |
+| Class | Implements |
+|---|---|
+| `BleRepositoryImpl` | `BleRepository` (delegates to `CommandRepository` + `CommandHistoryRepository`) |
+| `CommandRepositoryImpl` | `CommandRepository` |
+| `CommandHistoryRepositoryImpl` | `CommandHistoryRepository` |
+| `PresetRepositoryImpl` | `PresetRepository` |
+| `ConfigureRepositoryImpl` | `ConfigureRepository` |
 
-### Mappers
+## Mappers (internal, `core/mapper`)
 
-| Object | Model | Resource |
-|---|---|---|
-| `ThemePreferenceMapper` | `ThemeModel` | `ThemePreference` |
-| `OnboardingPreferenceMapper` | `OnboardingModel` | `OnboardingPreference` |
-| `LanguagePreferenceMapper` | `String?` | `LanguagePreference` |
+`ModelResourceMapper<MODEL, RESOURCE>` is the base interface (bidirectional `toModel` / `toResource`, built on `common-core`'s `Mapper`). Concrete mappers:
 
-## Usage
+| Object | Model ↔ Resource |
+|---|---|
+| `ThemePreferenceMapper` | `ThemeModel` ↔ `ThemePreference` |
+| `OnboardingPreferenceMapper` | `OnboardingModel` ↔ `OnboardingPreference` |
+| `LanguagePreferenceMapper` | `String?` ↔ `LanguagePreference` |
+| `BleSessionMapper` | `BleDeviceModel` ↔ `BleSessionResource` |
+| `CommandNodeMapper` | `CommandNodeModel` ↔ `CommandNodeResource` |
+| `CommandNodeCacheMapper` | `CommandNodeModel` ↔ `CommandNodeCacheResource` |
+| `CommandHistoryMapper` | command history model ↔ resource |
+| `PresetMapper` | `PresetModel` ↔ `PresetResource` |
+| `FirmwareVersionMapper` | `FirmwareVersionModel` ↔ `FirmwareVersionResource` |
 
-```kotlin
-// Koin DI wiring
-val repositoryModule = dataRepositoryImplModule
-
-// Koin registration (inside the module)
-singleOf(::ConfigureRepositoryImpl) bind ConfigureRepository::class
-```
+> `ThemePreferenceMapper` and `OnboardingPreferenceMapper` implement `ModelResourceMapper`; the rest expose plain `toModel` / `toResource` `Mapper` fields on the object.
 
 ## Testing
 
