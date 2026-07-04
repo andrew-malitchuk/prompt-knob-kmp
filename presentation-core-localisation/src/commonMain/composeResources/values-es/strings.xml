@@ -270,5 +270,6 @@
     <string name="settings_claude_guide_states_title">ESTADOS DEL DISPOSITIVO</string>
     <string name="settings_claude_guide_state_working">working — Claude Code está ejecutando una herramienta</string>
     <string name="settings_claude_guide_state_waiting">waiting — Claude Code necesita tu entrada</string>
+    <string name="settings_claude_guide_state_done">done — Claude Code terminó el turno</string>
     <string name="settings_claude_guide_state_idle">idle — sesión finalizada o sin sesión activa</string>
 </resources>

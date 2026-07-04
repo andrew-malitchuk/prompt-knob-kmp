@@ -245,6 +245,7 @@
     <string name="settings_claude_guide_states_title">DEVICE STATES</string>
     <string name="settings_claude_guide_state_working">working — Claude Code is running a tool</string>
     <string name="settings_claude_guide_state_waiting">waiting — Claude Code needs your input</string>
+    <string name="settings_claude_guide_state_done">done — Claude Code finished the turn</string>
     <string name="settings_claude_guide_state_idle">idle — session ended or no active session</string>
     <string name="history_title">COMMAND HISTORY</string>
     <string name="history_empty">NO COMMANDS EXECUTED YET</string>

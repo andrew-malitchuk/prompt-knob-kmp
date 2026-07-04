@@ -270,5 +270,6 @@
     <string name="settings_claude_guide_states_title">СТАНИ ПРИСТРОЮ</string>
     <string name="settings_claude_guide_state_working">working — Claude Code виконує інструмент</string>
     <string name="settings_claude_guide_state_waiting">waiting — Claude Code очікує вашого введення</string>
+    <string name="settings_claude_guide_state_done">done — Claude Code завершив хід</string>
     <string name="settings_claude_guide_state_idle">idle — сесія завершена або немає активної сесії</string>
 </resources>

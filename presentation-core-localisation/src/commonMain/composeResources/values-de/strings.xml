@@ -270,5 +270,6 @@
     <string name="settings_claude_guide_states_title">GERÄTEZUSTÄNDE</string>
     <string name="settings_claude_guide_state_working">working — Claude Code führt ein Tool aus</string>
     <string name="settings_claude_guide_state_waiting">waiting — Claude Code wartet auf deine Eingabe</string>
+    <string name="settings_claude_guide_state_done">done — Claude Code hat den Zug abgeschlossen</string>
     <string name="settings_claude_guide_state_idle">idle — Sitzung beendet oder keine aktive Sitzung</string>
 </resources>

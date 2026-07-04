@@ -96,6 +96,7 @@ import prompt_knob_kmp.presentation_core_localisation.generated.resources.settin
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_copy
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_how_body
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_how_title
+import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_state_done
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_state_idle
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_state_waiting
 import prompt_knob_kmp.presentation_core_localisation.generated.resources.settings_claude_guide_state_working
@@ -563,7 +564,7 @@ internal fun SettingsSuccessContent(
 
             Spacer(modifier = Modifier.height(Theme.spacing.spacingM))
 
-            val hooksConfig = """{"hooks":{"PreToolUse":[{"hooks":[{"type":"command","command":"curl -s -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'working'"}]}],"PostToolUse":[{"hooks":[{"type":"command","command":"curl -s -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'working'"}]}],"Stop":[{"hooks":[{"type":"command","command":"curl -s -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'idle'"}]}],"Notification":[{"hooks":[{"type":"command","command":"curl -s -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'waiting'"}]}]}}"""
+            val hooksConfig = """{"hooks":{"SessionStart":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'idle'"}]}],"UserPromptSubmit":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'working'"}]}],"PreToolUse":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'working'"}]}],"Notification":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'waiting'"}]}],"Stop":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'done'"}]}],"SessionEnd":[{"hooks":[{"type":"command","command":"curl -s -m 2 -X POST http://127.0.0.1:${state.claudeHookPort}/state -d 'idle'"}]}]}}"""
             var claudeCopied by remember { mutableStateOf(false) }
             val claudeClipboard = LocalClipboardManager.current
 
@@ -661,6 +662,7 @@ internal fun SettingsSuccessContent(
                 listOf(
                     stringResource(Res.string.settings_claude_guide_state_working),
                     stringResource(Res.string.settings_claude_guide_state_waiting),
+                    stringResource(Res.string.settings_claude_guide_state_done),
                     stringResource(Res.string.settings_claude_guide_state_idle),
                 ).forEach { stateLabel ->
                     Row(
