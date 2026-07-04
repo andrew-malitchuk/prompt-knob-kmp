@@ -1,4 +1,4 @@
-![img_banner.png](docs%2Fimg%2Fimg_banner.png)
+![img_banner.png](docs/img/img_banner.png)
 
 # PromptKnob
 
