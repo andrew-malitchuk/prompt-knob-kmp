@@ -3,6 +3,7 @@ site_description: >-
   Kotlin Multiplatform companion app for the PromptKnob BLE rotary knob —
   macOS & Android, with Claude Code integration.
 site_author: Andrew Malitchuk
+site_url: https://andrew-malitchuk.github.io/prompt-knob-kmp/
 repo_url: https://github.com/andrew-malitchuk/prompt-knob-kmp
 repo_name: prompt-knob-kmp
 docs_dir: docs
