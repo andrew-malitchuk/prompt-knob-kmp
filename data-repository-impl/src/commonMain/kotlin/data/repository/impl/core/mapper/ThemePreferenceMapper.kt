@@ -1,6 +1,6 @@
 package data.repository.impl.core.mapper
 
-import common.core.core.mapper.Mapper
+import common.core.source.mapper.Mapper
 import data.preference.api.source.model.ThemePreference
 import data.repository.impl.core.mapper.base.ModelResourceMapper
 import domain.core.source.model.ThemeModel
@@ -27,5 +27,3 @@ internal object ThemePreferenceMapper : ModelResourceMapper<ThemeModel, ThemePre
             ThemePreference(theme = model.mode)
         }
 }
-
-// wire up viewmodel

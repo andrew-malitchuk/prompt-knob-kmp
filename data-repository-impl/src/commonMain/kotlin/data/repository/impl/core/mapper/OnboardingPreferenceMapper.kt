@@ -1,6 +1,6 @@
 package data.repository.impl.core.mapper
 
-import common.core.core.mapper.Mapper
+import common.core.source.mapper.Mapper
 import data.preference.api.source.model.OnboardingPreference
 import data.repository.impl.core.mapper.base.ModelResourceMapper
 import domain.core.source.model.OnboardingModel
@@ -25,5 +25,3 @@ internal object OnboardingPreferenceMapper : ModelResourceMapper<OnboardingModel
             OnboardingPreference(isCompleted = model.isCompleted)
         }
 }
-
-// fix navigation bug

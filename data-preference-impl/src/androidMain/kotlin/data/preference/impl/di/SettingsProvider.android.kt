@@ -1,8 +1,9 @@
-package data.preference.impl.core
+package data.preference.impl.di
 
 import android.content.Context
 import androidx.datastore.preferences.preferencesDataStore
 import com.russhwolf.settings.Settings
+import data.preference.impl.source.DataStoreSettings
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.Module
 
@@ -16,13 +17,10 @@ private val Context.dataStore by preferencesDataStore(name = "promptknob_prefs")
  * the AndroidX Preferences DataStore instance obtained from the application [Context].
  *
  * @see DataStoreSettings
- * @see data.preference.impl.core.provideSettings
+ * @see data.preference.impl.di.provideSettings
  */
 internal actual fun Module.provideSettings() {
     single<Settings> {
-        // Retrieve the application Context from Koin and access its DataStore delegate.
         DataStoreSettings(androidContext().dataStore)
     }
 }
-
-// add feature module

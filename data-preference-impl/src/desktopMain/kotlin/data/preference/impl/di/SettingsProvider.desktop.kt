@@ -1,4 +1,4 @@
-package data.preference.impl.core
+package data.preference.impl.di
 
 import com.russhwolf.settings.PreferencesSettings
 import com.russhwolf.settings.Settings
@@ -12,13 +12,10 @@ import java.util.prefs.Preferences
  * `java.util.prefs.Preferences` under the user-root `"promptknob"` node.
  *
  * @see PreferencesSettings
- * @see data.preference.impl.core.provideSettings
+ * @see data.preference.impl.di.provideSettings
  */
 internal actual fun Module.provideSettings() {
     single<Settings> {
-        // Use the JVM user-root preferences node named "promptknob" for desktop persistence.
         PreferencesSettings(Preferences.userRoot().node("promptknob"))
     }
 }
-
-// simplify logic

@@ -1,6 +1,6 @@
 package data.repository.impl.core.mapper
 
-import common.core.core.mapper.Mapper
+import common.core.source.mapper.Mapper
 import data.preference.api.source.model.LanguagePreference
 
 /**
@@ -28,5 +28,3 @@ internal object LanguagePreferenceMapper {
             LanguagePreference(it ?: LanguagePreference.DEFAULT_LANGUAGE)
         }
 }
-
-// add extension helper

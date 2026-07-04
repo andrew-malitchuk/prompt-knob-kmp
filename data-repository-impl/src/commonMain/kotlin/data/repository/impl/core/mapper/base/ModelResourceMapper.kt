@@ -1,11 +1,13 @@
 package data.repository.impl.core.mapper.base
 
-import common.core.core.mapper.Mapper
-import data.core.source.resource.Resource
-import domain.core.source.model.base.Model
+import common.core.source.mapper.Mapper
 
 /**
- * Bidirectional mapper between domain [Model] and data [Resource] types.
+ * Bidirectional mapper between a domain model type [MODEL] and a data resource type [RESOURCE].
+ *
+ * No upper-bound constraints are placed on the type parameters so that plain types
+ * (e.g. [String], nullable types) can be used as [MODEL] without requiring them to
+ * implement a marker interface.
  *
  * Usage example:
  * ```kotlin
@@ -19,19 +21,17 @@ import domain.core.source.model.base.Model
  * }
  * ```
  *
- * @param MODEL The domain model type.
- * @param RESOURCE The data resource type.
+ * @param MODEL The domain-side type.
+ * @param RESOURCE The data-layer type.
  */
-public interface ModelResourceMapper<MODEL : Model, RESOURCE : Resource> {
+internal interface ModelResourceMapper<MODEL, RESOURCE> {
     /**
      * Mapper to convert a [RESOURCE] to a [MODEL].
      */
-    public val toModel: Mapper<RESOURCE, MODEL>
+    val toModel: Mapper<RESOURCE, MODEL>
 
     /**
      * Mapper to convert a [MODEL] to a [RESOURCE].
      */
-    public val toResource: Mapper<MODEL, RESOURCE>
+    val toResource: Mapper<MODEL, RESOURCE>
 }
-
-// reorganize package

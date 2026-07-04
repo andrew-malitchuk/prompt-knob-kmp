@@ -1,4 +1,4 @@
-package data.preference.impl.core
+package data.preference.impl.source
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -299,5 +299,3 @@ internal class DataStoreSettings(
 
     // endregion
 }
-
-// cache computed value
