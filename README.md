@@ -10,6 +10,38 @@ PromptKnob is a Kotlin Multiplatform companion app for the PromptKnob hardware (
 
 Built with a modular architecture: full build system, Koin DI, type-safe navigation, a complete UI component library, onboarding, settings, presets, and localisation/theme infrastructure.
 
+## Gallery
+
+### The Hardware
+
+The PromptKnob is an ESP32-based BLE rotary controller with a circular display.
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/img/hardware_pairing.jpg" alt="PromptKnob pairing over Bluetooth" /></td>
+    <td width="50%"><img src="docs/img/hardware_radial_menu.jpg" alt="PromptKnob radial macro menu" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Pairing over Bluetooth</em></td>
+    <td align="center"><em>On-device radial macro menu</em></td>
+  </tr>
+</table>
+
+### The App
+
+Manage devices, macros, and presets from a shared Compose Multiplatform UI on Android and macOS.
+
+<table>
+  <tr>
+    <td width="40%"><img src="docs/img/screenshot_android_device.jpg" alt="Android app — device and active macros" /></td>
+    <td width="60%"><img src="docs/img/screenshot_macos_settings.png" alt="macOS app — settings screen" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Android — device &amp; active macros</em></td>
+    <td align="center"><em>macOS — settings &amp; MCP integration</em></td>
+  </tr>
+</table>
+
 ## Build Commands
 
 ```bash
