@@ -20,18 +20,18 @@ android {
         }
 
         signingConfigs {
-//            getByName("debug") {
-//                keyAlias = signingProperties.getProperty("debugKey")
-//                keyPassword = signingProperties.getProperty("debugPassword")
-//                storePassword = signingProperties.getProperty("debugPassword")
-//                storeFile = File(rootDir, "./configure/signing/promptknob.debug")
-//            }
-//            create("release") {
-//                keyAlias = signingProperties.getProperty("releaseKey")
-//                keyPassword = signingProperties.getProperty("releasePassword")
-//                storePassword = signingProperties.getProperty("releasePassword")
-//                storeFile = File(rootDir, "./configure/signing/promptknob.release")
-//            }
+            getByName("debug") {
+                keyAlias = signingProperties.getProperty("debugKey")
+                keyPassword = signingProperties.getProperty("debugPassword")
+                storePassword = signingProperties.getProperty("debugPassword")
+                storeFile = File(rootDir, "./configure/signing/promptknob.debug")
+            }
+            create("release") {
+                keyAlias = signingProperties.getProperty("releaseKey")
+                keyPassword = signingProperties.getProperty("releasePassword")
+                storePassword = signingProperties.getProperty("releasePassword")
+                storeFile = File(rootDir, "./configure/signing/promptknob.release")
+            }
         }
     }
 

@@ -4,6 +4,11 @@ build/
 **/build/
 local.properties
 
+# Release outputs generated outside build/ (e.g. bundleRelease .aab)
+**/release/
+*.apk
+*.aab
+
 # ── IDE ───────────────────────────────────────────────────────────────────────
 .idea/
 *.iml
