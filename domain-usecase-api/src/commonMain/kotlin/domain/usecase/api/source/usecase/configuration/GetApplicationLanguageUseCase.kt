@@ -9,3 +9,5 @@ public interface GetApplicationLanguageUseCase {
      */
     public suspend operator fun invoke(): Result<String>
 }
+
+// wire up viewmodel
